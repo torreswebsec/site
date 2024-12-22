@@ -1,0 +1,924 @@
+<html><head><base href="https://www.torreswebsec.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TorresWebSec - Digital Innovation</title>
+<style>
+:root {
+  --primary: #32CD32; /* Lime green */
+  --secondary: #98FB98; /* Light lime */
+  --dark: #1a1a1a;
+  --light: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+.navbar {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.navbar.scrolled {
+  background: var(--dark);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar.scrolled .nav-links a {
+  color: var(--light);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  background: linear-gradient(135deg, var(--light) 60%, var(--secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 600px;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background: var(--primary);
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.services {
+  padding: 100px 50px;
+  background: #f9f9f9;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.why-flow {
+  padding: 100px 50px;
+  background: var(--dark);
+  color: var(--light);
+}
+
+.why-flow h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.benefit-card h3 {
+  color: var(--secondary);
+  margin: 15px 0;
+}
+
+/* Adding new modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: var(--dark);
+  color: var(--light);
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.modal-content h3 {
+  color: var(--primary);
+  margin: 25px 0 15px;
+  font-size: 24px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.modal-content li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.modal-content li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.modal-content p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.highlight-text {
+  color: var(--primary);
+  font-size: 1.1em;
+  font-weight: 500;
+  margin: 20px 0;
+  display: block;
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--light);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.close-modal:hover {
+  opacity: 1;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--light);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  font-size: 16px;
+  background: var(--dark);
+  color: var(--primary);
+}
+
+.form-group textarea {
+  height: 150px;
+}
+
+.form-group select option {
+  background: var(--dark);
+  color: var(--primary);
+}
+
+.form-group select option:checked {
+  background: var(--primary);
+  color: var(--dark);
+}
+
+.footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer a {
+  color: var(--light);
+  text-decoration: none;
+}
+
+.flag {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero, .services, .why-flow, .delivery-system {
+    padding: 20px;
+    text-align: left; /* Changed from center to left */
+  }
+  
+  .services h2,
+  .why-flow h2,
+  .clients h2 {
+    text-align: left; /* Section headers left-aligned on mobile */
+  }
+  
+  .benefit-card,
+  .highlight-review {
+    text-align: left; /* Cards and reviews left-aligned on mobile */
+  }
+}
+
+/* Add to existing CSS */
+.modal-content ul {
+    margin: 20px 0;
+}
+
+.modal-content li {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.modal-content li strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content .cta-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+}
+
+/* New styles for delivery system section */
+.delivery-system {
+  padding: 50px 50px 100px;
+  background: var(--light);
+}
+
+.delivery-system .service-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* New styles for clients section */
+.clients {
+  padding: 100px 50px;
+  background: var(--light);
+}
+
+.clients h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: var(--dark);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-card {
+  background: var(--dark);
+  padding: 30px;
+  border-radius: 15px;
+  color: var(--light);
+  transition: transform 0.3s;
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+}
+
+.client-card h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.client-card a {
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+
+.client-card a:hover {
+  color: var(--secondary);
+}
+
+.highlight-review {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  background: var(--dark);
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.highlight-review p {
+  color: var(--light);
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.stars {
+  color: var(--primary);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="https://www.torreswebsec.com" class="logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      TorresWebSec
+    </a>
+    <div class="nav-links">
+      <a href="#torresbot">TorresBot</a>
+      <a href="#services">Services</a>
+      <a href="#why-flow">Why TorresWebSec?</a>
+      <a href="#clients">Clients</a>
+      <a href="#contactForm">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="torresbot">
+    <div class="hero-content">
+      <h1>TorresBot: Your Intelligent Digital Assistant</h1>
+      <p>A revolutionary multi-purpose bot that simplifies your digital tasks. With advanced security, communication, and analysis features, TorresBot is your complete digital management solution.</p>
+      <a href="https://www.torreswebsec.com/torresbot" class="cta-button">Discover TorresBot</a>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+          <path d="M12 12h.01M8 12h.01M16 12h.01"/>
+        </svg>
+        <h3>Web Creation</h3>
+        <p>Custom websites with modern, responsive design, optimized for SEO and tailored to your needs.</p>
+      </div>
+      
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+        <h3>Google Presence</h3>
+        <p>Complete optimization of your Google profile, including professional photos and review management.</p>
+      </div>
+      
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+        <h3>Private Server</h3>
+        <p>Your own infrastructure with total control, advanced security, and simplified remote access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- New section for Delivery System -->
+  <section class="services delivery-system" id="delivery-system">
+    <h2>Online Ordering System</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
+        </svg>
+        <h3>Custom Restaurant Ordering System</h3>
+        <p>Proprietary system for restaurants with no monthly fees or third-party intermediaries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for TorresBot -->
+  <div id="torresbotModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('torresbotModal')">×</span>
+      <h2>TorresBot 1.0 - The Digital Solution That Simplifies Your Life</h2>
+      
+      <p>TorresBot 1.0 is a multifunctional digital assistant designed for professionals who need practicality, security, and efficiency in the digital world. With powerful and intuitive tools, it enables you to perform various essential tasks quickly and easily.</p>
+      
+      <h3>&#x1f539; What You Can Do with TorresBot</h3>
+      <ul>
+        <li>
+          <strong>Data Capture</strong>
+          Quick collection of information like photos, audio recordings, IP addresses, and precise location for digital investigations or security.
+        </li>
+        
+        <li>
+          <strong>Worldwide SMS</strong>
+          Send text messages to any number worldwide simply and efficiently. Perfect for direct contact, whether for personal or professional use.
+        </li>
+        
+        <li>
+          <strong>Investigation with Sherlock</strong>
+          Locate social media profiles and other online information associated with a username across over 350 sites. Perfect for digital investigations and identity verification.
+        </li>
+        
+        <li>
+          <strong>Text to Audio Conversion</strong>
+          Transform your texts into audio files to facilitate access to information or create dynamic presentations.
+        </li>
+        
+        <li>
+          <strong>Analysis with VirusTotal</strong>
+          Check files or links to identify potential threats and ensure the safety of your devices.
+        </li>
+        
+        <li>
+          <strong>QR Code Generator</strong>
+          Create custom QR codes in seconds to share links, information, or campaigns easily.
+        </li>
+        
+        <li>
+          <strong>Domain Whois Lookup</strong>
+          Obtain detailed information about websites, including owner, registration date, and DNS servers.
+        </li>
+        
+        <li>
+          <strong>SSL Certificate Verification</strong>
+          Ensure your browsing is secure by checking the validity of the SSL certificates of the websites you visit.
+        </li>
+        
+        <li>
+          <strong>Public IP Check</strong>
+          Discover your public IP address quickly and access relevant additional information.
+        </li>
+        
+        <li>
+          <strong>Secure Password Generator</strong>
+          Protect your online accounts with strong, secure passwords generated automatically.
+        </li>
+      </ul>
+      
+      <a href="#contactForm" class="cta-button" onclick="closeModal('torresbotModal')">Try TorresBot</a>
+    </div>
+  </div>
+
+  <!-- Modal for Web Creation -->
+  <div id="webModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(&apos;webModal&apos;)">&#xd7;</span>
+      <h2>Custom Web Creation</h2>
+      <span class="highlight-text">Our approach to web creation is fully customized, offering two main options to meet different needs and budgets:</span>
+      
+      <h3>Simple Website - Starting at 500 CHF (No monthly fees)</h3>
+      <ul>
+        <li>Modern and responsive design</li>
+        <li>Basic SEO optimization</li>
+        <li>Up to 5 pages</li>
+        <li>Integration with social media</li>
+        <li>Contact form</li>
+        <li>Hosting included</li>
+      </ul>
+
+      <h3>Professional Website - Starting at 800 CHF</h3>
+      <ul>
+        <li>Premium and custom design</li>
+        <li>Advanced SEO</li>
+        <li>Unlimited pages</li>
+        <li>Content management system</li>
+        <li>E-commerce (optional)</li>
+        <li>Advanced integrations</li>
+        <li>Priority support</li>
+        <li>Analytics and reports</li>
+      </ul>
+
+      <span class="highlight-text">Each project is developed with attention to detail and a focus on results, ensuring your website not only looks extraordinary but also generates real results for your business.</span>
+    </div>
+  </div>
+
+  <!-- Modal for Google Presence -->
+  <div id="googleModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(&apos;googleModal&apos;)">&#xd7;</span>
+      <h2>Professional Google Presence</h2>
+      <span class="highlight-text">We transform your digital presence with a complete Google optimization service:</span>
+      
+      <h3>Our Complete Package Includes:</h3>
+      <ul>
+        <li>Creation or optimization of Google Business profile</li>
+        <li>Professional photography session of your establishment</li>
+        <li>Production of promotional video</li>
+        <li>Keyword optimization for greater visibility</li>
+        <li>Active review and feedback management</li>
+        <li>Regular updates and promotional posts</li>
+        <li>Integration with Google Maps and local SEO</li>
+        <li>Monthly performance reports</li>
+        <li>Competitor monitoring</li>
+      </ul>
+
+      <span class="highlight-text">Our goal is to ensure your business appears in the top local search results and attracts more customers through a professional and impactful online presence.</span>
+    </div>
+  </div>
+
+  <!-- Modal for Private Server -->
+  <div id="serverModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(&apos;serverModal&apos;)">&#xd7;</span>
+      <h2>Private Server - Your Infrastructure, Your Control</h2>
+      <span class="highlight-text">While other companies charge monthly fees between 50-200 CHF or 600-2400 CHF per year, we offer a unique solution with no recurring costs:</span>
+
+      <h3>Exclusive Advantages:</h3>
+      <ul>
+        <li>One-time payment - no monthly or annual fees</li>
+        <li>Installation at your home or business</li>
+        <li>Secure remote access from anywhere in the world</li>
+        <li>Total privacy - your data remains on your local network</li>
+        <li>Automatic backup and data redundancy</li>
+        <li>Significant savings in the long run</li>
+        <li>Flexible and expandable storage capacity</li>
+        <li>Specialized technical support</li>
+      </ul>
+
+      <span class="highlight-text">Compare with traditional cloud solutions:</span>
+      <ul>
+        <li>Dropbox Business: ~300 CHF/year per user</li>
+        <li>Google Workspace: ~150 CHF/year per user</li>
+        <li>Microsoft 365: ~120 CHF/year per user</li>
+      </ul>
+
+      <span class="highlight-text">With our private server, you have total control over your data and real savings in the long term, without relying on third-party services.</span>
+    </div>
+  </div>
+
+  <!-- Modal for Online Orders System -->
+  <div id="ordersModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal(&apos;ordersModal&apos;)">&#xd7;</span>
+      <h2>Increase Your Sales with an Online Ordering System for Restaurants</h2>
+      
+      <p>Facilitate the ordering process for your hungry customers and boost your sales with attractive widgets for restaurants. The harder it is to find the order buttons on your site, the more customers you may lose.</p>
+      
+      <span class="highlight-text">Add the "View MENU and Place Order" and "Reserve Tables" widgets to your sales-optimized site and see how customer retention can improve. Make the online ordering process simple, fast, and intuitive.</span>
+      
+      <h3>Don't Have a Website? We Create One for You!</h3>
+      <p>Your menu may be excellent, but if traffic is low, we have the solution. We offer a fully functional website for your restaurant, with an integrated online ordering system.</p>
+      
+      <span class="highlight-text">Businesses using our sales-optimized system have increased their online sales by up to 162%!*</span>
+      
+      <h3>See How Easy It Is to Get Started:</h3>
+      <ul>
+        <li>Contact our team.</li>
+        <li>Receive a response within 24 hours.</li>
+        <li>Get a complete system, free of fees and intermediaries.</li>
+      </ul>
+      
+      <span class="highlight-text">You can have an online food ordering system up and running today!</span>
+      
+      <h3>Accept Online Orders Directly from Your Smartphone</h3>
+      <p>No special device is required. Just install the free order receipt app (available for Android or iOS) on your smartphone, tablet, or iPad and start accepting orders with a simple tap on the screen.</p>
+      
+      <p>We are ready to meet your business needs and help you grow.</p>
+      
+      <span class="highlight-text">Contact us and start selling more today! &#x1f680;</span>
+      
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Request a Demo</a>
+    </div>
+  </div>
+
+  <section class="why-flow" id="why-flow">
+    <h2>Why Choose TorresWebSec?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>Innovation & Expertise</h3>
+        <p>Solutions designed to streamline your operations and drive growth.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <h3>Personalized Services</h3>
+        <p>Custom solutions adapted to each business's specific needs.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <h3>Enhanced Profitability</h3>
+        <p>Process optimization for better operational efficiency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- New section for Clients -->
+  <section class="clients" id="clients">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+      <div class="client-card">
+        <h3>Banobu</h3>
+        <p>Professional Website</p>
+        <a href="https://www.banobu.ch/" target="_blank">Visit site →</a>
+      </div>
+      
+      <div class="client-card">
+        <h3>Voon Sports</h3>
+        <p>E-commerce</p>
+        <a href="https://www.voonsports.ch/" target="_blank">Visit site →</a>
+      </div>
+      
+      <div class="client-card">
+        <h3>Livraria Moria</h3>
+        <p>Professional Website</p>
+        <a href="https://www.livrariamoria.ch/" target="_blank">Visit site →</a>
+      </div>
+      
+      <div class="client-card">
+        <h3>Janaína Beauty</h3>
+        <p>Simple Website</p>
+        <a href="https://sites.google.com/view/janainabeauty" target="_blank">Visit site →</a>
+      </div>
+      
+      <div class="client-card">
+        <h3>TPG</h3>
+        <p>Transports Publics Genevois</p>
+        <a href="https://www.tpg.ch/fr" target="_blank">Visit site →</a>
+      </div>
+      
+      <div class="highlight-review">
+        <div class="stars">★★★★★</div>
+        <p>Technical Report: Our team identified and reported an error in TPG payment terminals in Geneva, Switzerland. This essential action prevented a loss of 17,280 CHF per year.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <form class="contact-form" id="contactForm">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label>Subject</label>
+      <select name="subject" required>
+        <option value="">Choose a subject</option>
+        <option value="torresbot">TorresBot</option>
+        <option value="web">Web Creation</option>
+        <option value="google">Google Presence</option>
+        <option value="server">Private Server</option>
+        <option value="orders">Online Ordering System</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea name="message" required></textarea>
+    </div>
+    <button type="submit" class="cta-button">Send</button>
+  </form>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="https://flagcdn.com/w20/ch.png" alt="Swiss flag" class="flag">
+    <img src="https://flagcdn.com/w20/br.png" alt="Brazilian flag" class="flag">
+    <span>2025 TorresWebSec Innovation and Expertise</span>
+    <a href="https://www.instagram.com/FLOWTECHNOLOGY_/" target="_blank">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    </a>
+  </footer>
+
+<script>window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'block';
+}
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', function () {
+    const service = this.querySelector('h3').textContent;
+    switch (service) {
+      case 'Web Creation':
+        openModal('webModal');
+        break;
+      case 'Google Presence':
+        openModal('googleModal');
+        break;
+      case 'Private Server':
+        openModal('serverModal');
+        break;
+      case 'Custom Restaurant Ordering System':
+        openModal('ordersModal');
+        break;
+    }
+  });
+});
+document.querySelector('a[href="#torresbot"]').addEventListener('click', e => {
+  e.preventDefault();
+  openModal('torresbotModal');
+});
+document.querySelector('.hero .cta-button').addEventListener('click', e => {
+  e.preventDefault();
+  openModal('torresbotModal');
+});
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  const message = `
+New message:
+Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Subject: ${formData.get('subject')}
+Message: ${formData.get('message')}
+  `;
+  const BOT_TOKEN = '7761704256:AAFjKhIIjUptkMj84pnUU0VG5u5K_VFaJWg';
+  const CHAT_ID = '5562266493';
+  try {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    });
+    alert('Message sent successfully!');
+    this.reset();
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error sending message. Please try again later.');
+  }
+});
+window.onclick = function (event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+  }
+};</script>
+</body>
+</html>
