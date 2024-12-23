@@ -48,12 +48,8 @@ body {
   align-items: center;
 }
 
-.profile-logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.logo svg {
   margin-right: 10px;
-  object-fit: cover;
 }
 
 .nav-links {
@@ -481,9 +477,9 @@ body {
 <body>
   <nav class="navbar">
     <a href="https://www.torreswebsec.com" class="logo">
-      <img src="/Screenshot 2024-12-23 at 13-21-27 Web Creation Google Presence Private Server (@torreswebsec) • Instagram photos and videos(1).png" 
-           alt="TorresWebSec Profile" 
-           class="profile-logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
       TorresWebSec
     </a>
     <div class="nav-links">
@@ -617,7 +613,7 @@ body {
   <!-- Modal for Web Creation -->
   <div id="webModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('webModal')">&#xd7;</span>
+      <span class="close-modal" onclick="closeModal(&apos;webModal&apos;)">&#xd7;</span>
       <h2>Custom Web Creation</h2>
       <span class="highlight-text">Our approach to web creation is fully customized, offering two main options to meet different needs and budgets:</span>
       
@@ -650,7 +646,7 @@ body {
   <!-- Modal for Google Presence -->
   <div id="googleModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('googleModal')">&#xd7;</span>
+      <span class="close-modal" onclick="closeModal(&apos;googleModal&apos;)">&#xd7;</span>
       <h2>Professional Google Presence</h2>
       <span class="highlight-text">We transform your digital presence with a complete Google optimization service:</span>
       
@@ -674,7 +670,7 @@ body {
   <!-- Modal for Private Server -->
   <div id="serverModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('serverModal')">&#xd7;</span>
+      <span class="close-modal" onclick="closeModal(&apos;serverModal&apos;)">&#xd7;</span>
       <h2>Private Server - Your Infrastructure, Your Control</h2>
       <span class="highlight-text">While other companies charge monthly fees between 50-200 CHF or 600-2400 CHF per year, we offer a unique solution with no recurring costs:</span>
 
@@ -704,7 +700,7 @@ body {
   <!-- Modal for Online Orders System -->
   <div id="ordersModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('ordersModal')">&#xd7;</span>
+      <span class="close-modal" onclick="closeModal(&apos;ordersModal&apos;)">&#xd7;</span>
       <h2>Increase Your Sales with an Online Ordering System for Restaurants</h2>
       
       <p>Facilitate the ordering process for your hungry customers and boost your sales with attractive widgets for restaurants. The harder it is to find the order buttons on your site, the more customers you may lose.</p>
@@ -732,7 +728,7 @@ body {
       
       <span class="highlight-text">Contact us and start selling more today! &#x1f680;</span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal('ordersModal')">Request a Demo</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Request a Demo</a>
     </div>
   </div>
 
