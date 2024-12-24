@@ -472,6 +472,24 @@ body {
   font-size: 24px;
   margin-bottom: 15px;
 }
+
+/* New styles for projects section */
+.projects {
+  padding: 100px 50px;
+  background: #f9f9f9;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.service-card .cta-button {
+  margin-top: 20px;
+  font-size: 0.9em;
+  padding: 10px 20px;
+}
 </style>
 </head>
 <body>
@@ -493,7 +511,7 @@ body {
 
   <section class="hero" id="torresbot">
     <div class="hero-content">
-      <h1>TorresBot: Your Intelligent Digital Assistant</h1>
+      <h1>TorresBot Your Intelligent Digital Assistant</h1>
       <p>A revolutionary multi-purpose bot that simplifies your digital tasks. With advanced security, communication, and analysis features, TorresBot is your complete digital management solution.</p>
       <a href="https://www.torreswebsec.com/torresbot" class="cta-button">Discover TorresBot</a>
     </div>
@@ -545,10 +563,25 @@ body {
     </div>
   </section>
 
+  <!-- New section for Projects -->
+  <section class="services projects" id="projects">
+    <h2>Our Projects</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
+        </svg>
+        <h3>Pizza Restaurant Example</h3>
+        <p>Custom restaurant website with online ordering system demo.</p>
+        <a href="https://torreswebsec.github.io/forpizzaria/" target="_blank" class="cta-button">View Project &#x2192;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Modal for TorresBot -->
   <div id="torresbotModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('torresbotModal')">×</span>
+      <span class="close-modal" onclick="closeModal(&apos;torresbotModal&apos;)">&#xd7;</span>
       <h2>TorresBot 1.0 - The Digital Solution That Simplifies Your Life</h2>
       
       <p>TorresBot 1.0 is a multifunctional digital assistant designed for professionals who need practicality, security, and efficiency in the digital world. With powerful and intuitive tools, it enables you to perform various essential tasks quickly and easily.</p>
@@ -606,7 +639,7 @@ body {
         </li>
       </ul>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal('torresbotModal')">Try TorresBot</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torresbotModal&apos;)">Try TorresBot</a>
     </div>
   </div>
 
@@ -705,9 +738,9 @@ body {
       
       <p>Facilitate the ordering process for your hungry customers and boost your sales with attractive widgets for restaurants. The harder it is to find the order buttons on your site, the more customers you may lose.</p>
       
-      <span class="highlight-text">Add the "View MENU and Place Order" and "Reserve Tables" widgets to your sales-optimized site and see how customer retention can improve. Make the online ordering process simple, fast, and intuitive.</span>
+      <span class="highlight-text">Add the &quot;View MENU and Place Order&quot; and &quot;Reserve Tables&quot; widgets to your sales-optimized site and see how customer retention can improve. Make the online ordering process simple, fast, and intuitive.</span>
       
-      <h3>Don't Have a Website? We Create One for You!</h3>
+      <h3>Don&apos;t Have a Website? We Create One for You!</h3>
       <p>Your menu may be excellent, but if traffic is low, we have the solution. We offer a fully functional website for your restaurant, with an integrated online ordering system.</p>
       
       <span class="highlight-text">Businesses using our sales-optimized system have increased their online sales by up to 162%!*</span>
@@ -736,13 +769,13 @@ body {
     <h2>Why Choose TorresWebSec?</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <h3>Innovation & Expertise</h3>
+        <h3>Innovation &amp; Expertise</h3>
         <p>Solutions designed to streamline your operations and drive growth.</p>
       </div>
       
       <div class="benefit-card">
         <h3>Personalized Services</h3>
-        <p>Custom solutions adapted to each business's specific needs.</p>
+        <p>Custom solutions adapted to each business&apos;s specific needs.</p>
       </div>
       
       <div class="benefit-card">
@@ -759,35 +792,35 @@ body {
       <div class="client-card">
         <h3>Banobu</h3>
         <p>Professional Website</p>
-        <a href="https://www.banobu.ch/" target="_blank">Visit site →</a>
+        <a href="https://www.banobu.ch/" target="_blank">Visit site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>Voon Sports</h3>
         <p>E-commerce</p>
-        <a href="https://www.voonsports.ch/" target="_blank">Visit site →</a>
+        <a href="https://www.voonsports.ch/" target="_blank">Visit site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>Livraria Moria</h3>
         <p>Professional Website</p>
-        <a href="https://www.livrariamoria.ch/" target="_blank">Visit site →</a>
+        <a href="https://www.livrariamoria.ch/" target="_blank">Visit site &#x2192;</a>
       </div>
       
       <div class="client-card">
-        <h3>Janaína Beauty</h3>
+        <h3>Jana&#xed;na Beauty</h3>
         <p>Simple Website</p>
-        <a href="https://sites.google.com/view/janainabeauty" target="_blank">Visit site →</a>
+        <a href="https://sites.google.com/view/janainabeauty" target="_blank">Visit site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>TPG</h3>
         <p>Transports Publics Genevois</p>
-        <a href="https://www.tpg.ch/fr" target="_blank">Visit site →</a>
+        <a href="https://www.tpg.ch/fr" target="_blank">Visit site &#x2192;</a>
       </div>
       
       <div class="highlight-review">
-        <div class="stars">★★★★★</div>
+        <div class="stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
         <p>Technical Report: Our team identified and reported an error in TPG payment terminals in Geneva, Switzerland. This essential action prevented a loss of 17,280 CHF per year.</p>
       </div>
     </div>
@@ -806,7 +839,7 @@ body {
     <div class="form-group">
       <label>Subject</label>
       <select name="subject" required>
-        <option value="">Choose a subject</option>
+        <option value>Choose a subject</option>
         <option value="torresbot">TorresBot</option>
         <option value="web">Web Creation</option>
         <option value="google">Google Presence</option>
