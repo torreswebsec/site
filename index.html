@@ -1,11 +1,11 @@
-<html><head><base href="https://www.torreswebsec.com/">
+<html><head><base href="https://www.instagram.com/torreswebsec/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Torreswebsec - Digital Innovation</title>
 <style>
 :root {
-  --primary: #32CD32; /* Lime green */
-  --secondary: #98FB98; /* Light lime */
+  --primary: #1E90FF; /* Change lime green to dodger blue */
+  --secondary: #87CEFA; /* Change light lime to light sky blue */
   --dark: #1a1a1a;
   --light: #ffffff;
 }
@@ -82,38 +82,61 @@ body {
   overflow: hidden;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(2px 2px at 40px 60px, var(--primary) 50%, transparent 100%),
+    radial-gradient(2px 2px at 20px 50px, var(--primary) 50%, transparent 100%),
+    radial-gradient(2px 2px at 30px 100px, var(--primary) 50%, transparent 100%),
+    radial-gradient(2px 2px at 80px 120px, var(--primary) 50%, transparent 100%),
+    radial-gradient(2px 2px at 110px 80px, var(--primary) 50%, transparent 100%),
+    radial-gradient(2px 2px at 90px 40px, var(--primary) 50%, transparent 100%);
+  background-size: 150px 150px;
+  animation: animateNodes 8s linear infinite;
+  opacity: 0.15;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 48%, var(--primary) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--primary) 50%, transparent 52%);
+  background-size: 60px 60px;
+  animation: animateGrid 4s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes animateNodes {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+@keyframes animateGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
 .hero-content {
   max-width: 600px;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 48px;
-  color: var(--dark);
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.cta-button {
-  padding: 15px 30px;
-  background: var(--primary);
-  color: var(--light);
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 500;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-.cta-button:hover {
-  background: var(--secondary);
-  transform: translateY(-2px);
+  z-index: 2;
 }
 
 .services {
@@ -490,11 +513,30 @@ body {
   font-size: 0.9em;
   padding: 10px 20px;
 }
+
+/* Add new CSS class for CTA button */
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
 </style>
 </head>
 <body>
   <nav class="navbar">
-    <a href="https://www.torreswebsec.com" class="logo">
+    <a href="https://www.instagram.com/torreswebsec/" class="logo">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
       </svg>
@@ -502,7 +544,7 @@ body {
     </a>
     <div class="nav-links">
       <a href="#torresbot">TorresBot</a>
-      <a href="#services">Serviços</a>
+      <a href="#services">Servi&#xe7;os</a>
       <a href="#why-flow">Por que Torreswebsec?</a>
       <a href="#clients">Clientes</a>
       <a href="#contactForm">Contato</a>
@@ -512,21 +554,21 @@ body {
   <section class="hero" id="torresbot">
     <div class="hero-content">
       <h1>TorresBot Seu Assistente Digital Inteligente</h1>
-      <p>Um bot revolucionário multifuncional que simplifica suas tarefas digitais. Com recursos avançados de segurança, comunicação e análise, o TorresBot é sua solução completa de gestão digital.</p>
+      <p>Um bot revolucion&#xe1;rio multifuncional que simplifica suas tarefas digitais. Com recursos avan&#xe7;ados de seguran&#xe7;a, comunica&#xe7;&#xe3;o e an&#xe1;lise, o TorresBot &#xe9; sua solu&#xe7;&#xe3;o completa de gest&#xe3;o digital.</p>
       <a href="https://www.torreswebsec.com/torresbot" class="cta-button">Descubra o TorresBot</a>
     </div>
   </section>
 
   <section class="services" id="services">
-    <h2>Nossos Serviços</h2>
+    <h2>Nossos Servi&#xe7;os</h2>
     <div class="services-grid">
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
           <path d="M12 12h.01M8 12h.01M16 12h.01"/>
         </svg>
-        <h3>Criação de Sites</h3>
-        <p>Sites personalizados com design moderno e responsivo, otimizados para SEO e adaptados às suas necessidades.</p>
+        <h3>Cria&#xe7;&#xe3;o de Sites</h3>
+        <p>Sites personalizados com design moderno e responsivo, otimizados para SEO e adaptados &#xe0;s suas necessidades.</p>
       </div>
       
       <div class="service-card">
@@ -534,8 +576,8 @@ body {
           <circle cx="12" cy="12" r="10"/>
           <path d="M12 8v8M8 12h8"/>
         </svg>
-        <h3>Presença no Google</h3>
-        <p>Otimização completa do seu perfil no Google, incluindo fotos profissionais e gestão de avaliações.</p>
+        <h3>Presen&#xe7;a no Google</h3>
+        <p>Otimiza&#xe7;&#xe3;o completa do seu perfil no Google, incluindo fotos profissionais e gest&#xe3;o de avalia&#xe7;&#xf5;es.</p>
       </div>
       
       <div class="service-card">
@@ -544,7 +586,7 @@ body {
           <path d="M12 8v8M8 12h8"/>
         </svg>
         <h3>Servidor Privado</h3>
-        <p>Sua própria infraestrutura com total controle, segurança avançada e acesso remoto simplificado.</p>
+        <p>Sua pr&#xf3;pria infraestrutura com total controle, seguran&#xe7;a avan&#xe7;ada e acesso remoto simplificado.</p>
       </div>
 
       <div class="service-card">
@@ -553,7 +595,7 @@ body {
           <path d="M17 14v6M14 17h6"/>
         </svg>
         <h3>TorresPay</h3>
-        <p>Soluções de pagamento personalizadas para empresas e indivíduos com taxas competitivas e suporte personalizado.</p>
+        <p>Solu&#xe7;&#xf5;es de pagamento personalizadas para empresas e indiv&#xed;duos com taxas competitivas e suporte personalizado.</p>
       </div>
     </div>
   </section>
@@ -567,7 +609,7 @@ body {
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
         <h3>Sistema de Pedidos para Restaurantes Personalizado</h3>
-        <p>Sistema proprietário para restaurantes sem taxas mensais ou intermediários.</p>
+        <p>Sistema propriet&#xe1;rio para restaurantes sem taxas mensais ou intermedi&#xe1;rios.</p>
       </div>
     </div>
   </section>
@@ -581,7 +623,7 @@ body {
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
         <h3>Exemplo de Restaurante de Pizza</h3>
-        <p>Site personalizado para restaurante com demonstração do sistema de pedidos online.</p>
+        <p>Site personalizado para restaurante com demonstra&#xe7;&#xe3;o do sistema de pedidos online.</p>
         <a href="https://torreswebsec.github.io/forpizzaria/" target="_blank" class="cta-button">Ver Projeto &#x2192;</a>
       </div>
     </div>
@@ -591,55 +633,55 @@ body {
   <div id="torresbotModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;torresbotModal&apos;)">&#xd7;</span>
-      <h2>TorresBot 1.0 - A Solução Digital que Simplifica Sua Vida</h2>
+      <h2>TorresBot 1.0 - A Solu&#xe7;&#xe3;o Digital que Simplifica Sua Vida</h2>
       
-      <p>TorresBot 1.0 é um assistente digital multifuncional projetado para profissionais que precisam de praticidade, segurança e eficiência no mundo digital. Com ferramentas poderosas e intuitivas, permite que você realize diversas tarefas essenciais de forma rápida e fácil.</p>
+      <p>TorresBot 1.0 &#xe9; um assistente digital multifuncional projetado para profissionais que precisam de praticidade, seguran&#xe7;a e efici&#xea;ncia no mundo digital. Com ferramentas poderosas e intuitivas, permite que voc&#xea; realize diversas tarefas essenciais de forma r&#xe1;pida e f&#xe1;cil.</p>
       
-      <h3>&#x1f539; O Que Você Pode Fazer com o TorresBot</h3>
+      <h3>&#x1f539; O Que Voc&#xea; Pode Fazer com o TorresBot</h3>
       <ul>
         <li>
           <strong>Captura de Dados</strong>
-          Coleta rápida de informações como fotos, gravações de áudio, endereços IP e localização precisa para investigações digitais ou segurança.
+          Coleta r&#xe1;pida de informa&#xe7;&#xf5;es como fotos, grava&#xe7;&#xf5;es de &#xe1;udio, endere&#xe7;os IP e localiza&#xe7;&#xe3;o precisa para investiga&#xe7;&#xf5;es digitais ou seguran&#xe7;a.
         </li>
         
         <li>
           <strong>SMS Mundial</strong>
-          Envie mensagens de texto para qualquer número no mundo de forma simples e eficiente. Perfeito para contato direto, seja para uso pessoal ou profissional.
+          Envie mensagens de texto para qualquer n&#xfa;mero no mundo de forma simples e eficiente. Perfeito para contato direto, seja para uso pessoal ou profissional.
         </li>
         
         <li>
-          <strong>Investigação com Sherlock</strong>
-          Localize perfis de redes sociais e outras informações online associadas a um nome de usuário em mais de 350 sites. Perfeito para investigações digitais e verificação de identidade.
+          <strong>Investiga&#xe7;&#xe3;o com Sherlock</strong>
+          Localize perfis de redes sociais e outras informa&#xe7;&#xf5;es online associadas a um nome de usu&#xe1;rio em mais de 350 sites. Perfeito para investiga&#xe7;&#xf5;es digitais e verifica&#xe7;&#xe3;o de identidade.
         </li>
         
         <li>
-          <strong>Conversão de Texto em Áudio</strong>
-          Transforme seus textos em arquivos de áudio para facilitar o acesso à informação ou criar apresentações dinâmicas.
+          <strong>Convers&#xe3;o de Texto em &#xc1;udio</strong>
+          Transforme seus textos em arquivos de &#xe1;udio para facilitar o acesso &#xe0; informa&#xe7;&#xe3;o ou criar apresenta&#xe7;&#xf5;es din&#xe2;micas.
         </li>
         
         <li>
-          <strong>Análise com VirusTotal</strong>
-          Verifique arquivos ou links para identificar ameaças potenciais e garantir a segurança de seus dispositivos.
+          <strong>An&#xe1;lise com VirusTotal</strong>
+          Verifique arquivos ou links para identificar amea&#xe7;as potenciais e garantir a seguran&#xe7;a de seus dispositivos.
         </li>
         
         <li>
           <strong>Gerador de QR Code</strong>
-          Crie códigos QR personalizados em segundos para compartilhar links, informações ou campanhas facilmente.
+          Crie c&#xf3;digos QR personalizados em segundos para compartilhar links, informa&#xe7;&#xf5;es ou campanhas facilmente.
         </li>
         
         <li>
-          <strong>Consulta Whois de Domínio</strong>
-          Obtenha informações detalhadas sobre sites, incluindo proprietário, data de registro e servidores DNS.
+          <strong>Consulta Whois de Dom&#xed;nio</strong>
+          Obtenha informa&#xe7;&#xf5;es detalhadas sobre sites, incluindo propriet&#xe1;rio, data de registro e servidores DNS.
         </li>
         
         <li>
-          <strong>Verificação de Certificado SSL</strong>
-          Garanta que sua navegação seja segura verificando a validade dos certificados SSL dos sites que você visita.
+          <strong>Verifica&#xe7;&#xe3;o de Certificado SSL</strong>
+          Garanta que sua navega&#xe7;&#xe3;o seja segura verificando a validade dos certificados SSL dos sites que voc&#xea; visita.
         </li>
         
         <li>
-          <strong>Verificação de IP Público</strong>
-          Descubra seu endereço IP público rapidamente e acesse informações adicionais relevantes.
+          <strong>Verifica&#xe7;&#xe3;o de IP P&#xfa;blico</strong>
+          Descubra seu endere&#xe7;o IP p&#xfa;blico rapidamente e acesse informa&#xe7;&#xf5;es adicionais relevantes.
         </li>
         
         <li>
@@ -656,32 +698,32 @@ body {
   <div id="webModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;webModal&apos;)">&#xd7;</span>
-      <h2>Criação de Sites Personalizados</h2>
-      <span class="highlight-text">Nossa abordagem para criação de sites é totalmente personalizada, oferecendo duas opções principais para atender diferentes necessidades e orçamentos:</span>
+      <h2>Cria&#xe7;&#xe3;o de Sites Personalizados</h2>
+      <span class="highlight-text">Nossa abordagem para cria&#xe7;&#xe3;o de sites &#xe9; totalmente personalizada, oferecendo duas op&#xe7;&#xf5;es principais para atender diferentes necessidades e or&#xe7;amentos:</span>
       
       <h3>Site Simples - A Partir de 500 CHF (Sem taxas mensais)</h3>
       <ul>
         <li>Design moderno e responsivo</li>
-        <li>Otimização básica para SEO</li>
-        <li>Até 5 páginas</li>
-        <li>Integração com redes sociais</li>
-        <li>Formulário de contato</li>
+        <li>Otimiza&#xe7;&#xe3;o b&#xe1;sica para SEO</li>
+        <li>At&#xe9; 5 p&#xe1;ginas</li>
+        <li>Integra&#xe7;&#xe3;o com redes sociais</li>
+        <li>Formul&#xe1;rio de contato</li>
         <li>Hospedagem inclusa</li>
       </ul>
 
       <h3>Site Profissional - A Partir de 800 CHF</h3>
       <ul>
         <li>Design premium e personalizado</li>
-        <li>SEO avançado</li>
-        <li>Páginas ilimitadas</li>
-        <li>Sistema de gerenciamento de conteúdo</li>
+        <li>SEO avan&#xe7;ado</li>
+        <li>P&#xe1;ginas ilimitadas</li>
+        <li>Sistema de gerenciamento de conte&#xfa;do</li>
         <li>E-commerce (opcional)</li>
-        <li>Integrações avançadas</li>
-        <li>Suporte prioritário</li>
-        <li>Análises e relatórios</li>
+        <li>Integra&#xe7;&#xf5;es avan&#xe7;adas</li>
+        <li>Suporte priorit&#xe1;rio</li>
+        <li>An&#xe1;lises e relat&#xf3;rios</li>
       </ul>
 
-      <span class="highlight-text">Cada projeto é desenvolvido com atenção aos detalhes e foco em resultados, garantindo que seu site não apenas tenha uma aparência extraordinária, mas também gere resultados reais para o seu negócio.</span>
+      <span class="highlight-text">Cada projeto &#xe9; desenvolvido com aten&#xe7;&#xe3;o aos detalhes e foco em resultados, garantindo que seu site n&#xe3;o apenas tenha uma apar&#xea;ncia extraordin&#xe1;ria, mas tamb&#xe9;m gere resultados reais para o seu neg&#xf3;cio.</span>
     </div>
   </div>
 
@@ -689,23 +731,23 @@ body {
   <div id="googleModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;googleModal&apos;)">&#xd7;</span>
-      <h2>Presença Profissional no Google</h2>
-      <span class="highlight-text">Transformamos sua presença digital com um serviço completo de otimização do Google:</span>
+      <h2>Presen&#xe7;a Profissional no Google</h2>
+      <span class="highlight-text">Transformamos sua presen&#xe7;a digital com um servi&#xe7;o completo de otimiza&#xe7;&#xe3;o do Google:</span>
       
       <h3>Nosso Pacote Completo Inclui:</h3>
       <ul>
-        <li>Criação ou otimização do perfil de negócios no Google</li>
-        <li>Sessão de fotos profissionais do seu estabelecimento</li>
-        <li>Produção de vídeo promocional</li>
-        <li>Otimização de palavras-chave para maior visibilidade</li>
-        <li>Gestão ativa de avaliações e feedbacks</li>
-        <li>Atualizações regulares e postagens promocionais</li>
-        <li>Integração com Google Maps e SEO local</li>
-        <li>Relatórios de desempenho mensais</li>
+        <li>Cria&#xe7;&#xe3;o ou otimiza&#xe7;&#xe3;o do perfil de neg&#xf3;cios no Google</li>
+        <li>Sess&#xe3;o de fotos profissionais do seu estabelecimento</li>
+        <li>Produ&#xe7;&#xe3;o de v&#xed;deo promocional</li>
+        <li>Otimiza&#xe7;&#xe3;o de palavras-chave para maior visibilidade</li>
+        <li>Gest&#xe3;o ativa de avalia&#xe7;&#xf5;es e feedbacks</li>
+        <li>Atualiza&#xe7;&#xf5;es regulares e postagens promocionais</li>
+        <li>Integra&#xe7;&#xe3;o com Google Maps e SEO local</li>
+        <li>Relat&#xf3;rios de desempenho mensais</li>
         <li>Monitoramento de concorrentes</li>
       </ul>
 
-      <span class="highlight-text">Nosso objetivo é garantir que sua empresa apareça nos principais resultados de busca local e atraia mais clientes por meio de uma presença online profissional e impactante.</span>
+      <span class="highlight-text">Nosso objetivo &#xe9; garantir que sua empresa apare&#xe7;a nos principais resultados de busca local e atraia mais clientes por meio de uma presen&#xe7;a online profissional e impactante.</span>
     </div>
   </div>
 
@@ -714,82 +756,82 @@ body {
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;serverModal&apos;)">&#xd7;</span>
       <h2>Servidor Privado - Sua Infraestrutura, Seu Controle</h2>
-      <span class="highlight-text">Enquanto outras empresas cobram taxas mensais entre 50-200 CHF ou 600-2400 CHF por ano, oferecemos uma solução única sem custos recorrentes:</span>
+      <span class="highlight-text">Enquanto outras empresas cobram taxas mensais entre 50-200 CHF ou 600-2400 CHF por ano, oferecemos uma solu&#xe7;&#xe3;o &#xfa;nica sem custos recorrentes:</span>
 
       <h3>Vantagens Exclusivas:</h3>
       <ul>
-        <li>Pagamento único - sem taxas mensais ou anuais</li>
-        <li>Instalação em sua casa ou empresa</li>
+        <li>Pagamento &#xfa;nico - sem taxas mensais ou anuais</li>
+        <li>Instala&#xe7;&#xe3;o em sua casa ou empresa</li>
         <li>Acesso remoto seguro de qualquer lugar do mundo</li>
         <li>Total privacidade - seus dados permanecem na sua rede local</li>
-        <li>Backup automático e redundância de dados</li>
+        <li>Backup autom&#xe1;tico e redund&#xe2;ncia de dados</li>
         <li>Economia significativa a longo prazo</li>
-        <li>Capacidade de armazenamento flexível e expansível</li>
-        <li>Suporte técnico especializado</li>
+        <li>Capacidade de armazenamento flex&#xed;vel e expans&#xed;vel</li>
+        <li>Suporte t&#xe9;cnico especializado</li>
       </ul>
 
-      <span class="highlight-text">Compare com soluções de nuvem tradicionais:</span>
+      <span class="highlight-text">Compare com solu&#xe7;&#xf5;es de nuvem tradicionais:</span>
       <ul>
-        <li>Dropbox Business: ~300 CHF/ano por usuário</li>
-        <li>Google Workspace: ~150 CHF/ano por usuário</li>
-        <li>Microsoft 365: ~120 CHF/ano por usuário</li>
+        <li>Dropbox Business: ~300 CHF/ano por usu&#xe1;rio</li>
+        <li>Google Workspace: ~150 CHF/ano por usu&#xe1;rio</li>
+        <li>Microsoft 365: ~120 CHF/ano por usu&#xe1;rio</li>
       </ul>
 
-      <span class="highlight-text">Com nosso servidor privado, você tem total controle sobre seus dados e reais economias a longo prazo, sem depender de serviços de terceiros.</span>
+      <span class="highlight-text">Com nosso servidor privado, voc&#xea; tem total controle sobre seus dados e reais economias a longo prazo, sem depender de servi&#xe7;os de terceiros.</span>
     </div>
   </div>
 
   <!-- Modal for TorresPay -->
   <div id="torrespayModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeModal('torrespayModal')">×</span>
-      <h2>TorresPay - Sua Solução Personalizada de Pagamentos</h2>
+      <span class="close-modal" onclick="closeModal(&apos;torrespayModal&apos;)">&#xd7;</span>
+      <h2>TorresPay - Sua Solu&#xe7;&#xe3;o Personalizada de Pagamentos</h2>
       
-      <span class="highlight-text">Transforme seu negócio com nossa solução de processamento de pagamentos personalizada</span>
+      <span class="highlight-text">Transforme seu neg&#xf3;cio com nossa solu&#xe7;&#xe3;o de processamento de pagamentos personalizada</span>
       
-      <p>TorresPay é um provedor de pagamentos abrangente projetado para ajudar empresas e indivíduos a receberem pagamentos online de forma segura e eficiente. Nossa solução se adapta às suas necessidades específicas, garantindo uma experiência de pagamento perfeita para você e seus clientes.</p>
+      <p>TorresPay &#xe9; um provedor de pagamentos abrangente projetado para ajudar empresas e indiv&#xed;duos a receberem pagamentos online de forma segura e eficiente. Nossa solu&#xe7;&#xe3;o se adapta &#xe0;s suas necessidades espec&#xed;ficas, garantindo uma experi&#xea;ncia de pagamento perfeita para voc&#xea; e seus clientes.</p>
       
       <h3>Por que escolher TorresPay?</h3>
       <ul>
         <li>
-          <strong>Preços Competitivos</strong>
-          Taxa fixa de 2,9% por transação - preços transparentes e diretos sem custos ocultos
+          <strong>Pre&#xe7;os Competitivos</strong>
+          Taxa fixa de 2,9% por transa&#xe7;&#xe3;o - pre&#xe7;os transparentes e diretos sem custos ocultos
         </li>
         
         <li>
-          <strong>Integração Personalizada</strong>
-          Soluções de pagamento adaptadas especificamente para seu modelo de negócio e necessidades
+          <strong>Integra&#xe7;&#xe3;o Personalizada</strong>
+          Solu&#xe7;&#xf5;es de pagamento adaptadas especificamente para seu modelo de neg&#xf3;cio e necessidades
         </li>
         
         <li>
           <strong>Suporte 24/7</strong>
-          Equipe de suporte técnico dedicada disponível 24 horas por dia
+          Equipe de suporte t&#xe9;cnico dedicada dispon&#xed;vel 24 horas por dia
         </li>
         
         <li>
           <strong>Processamento Seguro</strong>
-          Medidas de segurança de última geração para proteger suas transações e dados dos clientes
+          Medidas de seguran&#xe7;a de &#xfa;ltima gera&#xe7;&#xe3;o para proteger suas transa&#xe7;&#xe3;o e dados dos clientes
         </li>
         
         <li>
-          <strong>Configuração Rápida</strong>
-          Processo de integração rápido para você começar a aceitar pagamentos rapidamente
+          <strong>Configura&#xe7;&#xe3;o R&#xe1;pida</strong>
+          Processo de integra&#xe7;&#xe3;o r&#xe1;pido para voc&#xea; come&#xe7;ar a aceitar pagamentos rapidamente
         </li>
       </ul>
       
       <h3>Recursos</h3>
       <ul>
-        <li>Suporte a múltiplos métodos de pagamento</li>
-        <li>Monitoramento de transações em tempo real</li>
-        <li>Reconciliação automatizada</li>
-        <li>Páginas de checkout personalizadas</li>
-        <li>Análises e relatórios detalhados</li>
-        <li>Suporte a pagamentos móveis</li>
+        <li>Suporte a m&#xfa;ltiplos m&#xe9;todos de pagamento</li>
+        <li>Monitoramento de transa&#xe7;&#xf5;es em tempo real</li>
+        <li>Reconcilia&#xe7;&#xe3;o automatizada</li>
+        <li>P&#xe1;ginas de checkout personalizadas</li>
+        <li>An&#xe1;lises e relat&#xf3;rios detalhados</li>
+        <li>Suporte a pagamentos m&#xf3;veis</li>
       </ul>
 
-      <span class="highlight-text">Comece a aceitar pagamentos hoje com nossa taxa competitiva de 2,9% por transação!</span>
+      <span class="highlight-text">Comece a aceitar pagamentos hoje com nossa taxa competitiva de 2,9% por transa&#xe7;&#xe3;o!</span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal('torrespayModal')">Começar com TorresPay</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torrespayModal&apos;)">Come&#xe7;ar com TorresPay</a>
     </div>
   </div>
 
@@ -799,32 +841,32 @@ body {
       <span class="close-modal" onclick="closeModal(&apos;ordersModal&apos;)">&#xd7;</span>
       <h2>Aumente suas Vendas com um Sistema de Pedidos Online para Restaurantes</h2>
       
-      <p>Facilite o processo de pedido para seus clientes famintos e aumente suas vendas com widgets atraentes para restaurantes. Quanto mais difícil for encontrar os botões de pedido em seu site, mais clientes você pode perder.</p>
+      <p>Facilite o processo de pedido para seus clientes famintos e aumente suas vendas com widgets atraentes para restaurantes. Quanto mais dif&#xed;cil for encontrar os bot&#xf5;es de pedido em seu site, mais clientes voc&#xea; pode perder.</p>
       
-      <span class="highlight-text">Adicione os widgets "Ver MENU e Fazer Pedido" e "Reservar Mesas" ao seu site otimizado para vendas e veja como a retenção de clientes pode melhorar. Torne o processo de pedidos online simples, rápido e intuitivo.</span>
+      <span class="highlight-text">Adicione os widgets &quot;Ver MENU e Fazer Pedido&quot; e &quot;Reservar Mesas&quot; ao seu site otimizado para vendas e veja como a reten&#xe7;&#xe3;o de clientes pode melhorar. Torne o processo de pedidos online simples, r&#xe1;pido e intuitivo.</span>
       
-      <h3>Não Tem um Site? Nós Criamos Um para Você!</h3>
-      <p>Seu menu pode ser excelente, mas se o tráfego for baixo, temos a solução. Oferecemos um site totalmente funcional para seu restaurante, com um sistema de pedidos online integrado.</p>
+      <h3>N&#xe3;o Tem um Site? N&#xf3;s Criamos Um para Voc&#xea;!</h3>
+      <p>Seu menu pode ser excelente, mas se o tr&#xe1;fego for baixo, temos a solu&#xe7;&#xe3;o. Oferecemos um site totalmente funcional para seu restaurante, com um sistema de pedidos online integrado.</p>
       
-      <span class="highlight-text">Empresas que utilizam nosso sistema otimizado para vendas aumentaram suas vendas online em até 162%!*</span>
+      <span class="highlight-text">Empresas que utilizam nosso sistema otimizado para vendas aumentaram suas vendas online em at&#xe9; 162%!*</span>
       
-      <h3>Veja Como É Fácil Começar:</h3>
+      <h3>Veja Como &#xc9; F&#xe1;cil Come&#xe7;ar:</h3>
       <ul>
         <li>Entre em contato com nossa equipe.</li>
-        <li>Receba uma resposta em até 24 horas.</li>
-        <li>Obtenha um sistema completo, livre de taxas e intermediários.</li>
+        <li>Receba uma resposta em at&#xe9; 24 horas.</li>
+        <li>Obtenha um sistema completo, livre de taxas e intermedi&#xe1;rios.</li>
       </ul>
       
-      <span class="highlight-text">Você pode ter um sistema de pedidos online funcionando hoje!</span>
+      <span class="highlight-text">Voc&#xea; pode ter um sistema de pedidos online funcionando hoje!</span>
       
       <h3>Aceite Pedidos Online Diretamente do Seu Smartphone</h3>
-      <p>Nenhum dispositivo especial é necessário. Basta instalar o aplicativo gratuito de recibo de pedidos (disponível para Android ou iOS) em seu smartphone, tablet ou iPad e começar a aceitar pedidos com um simples toque na tela.</p>
+      <p>Nenhum dispositivo especial &#xe9; necess&#xe1;rio. Basta instalar o aplicativo gratuito de recibo de pedidos (dispon&#xed;vel para Android ou iOS) em seu smartphone, tablet ou iPad e come&#xe7;ar a aceitar pedidos com um simples toque na tela.</p>
       
-      <p>Estamos prontos para atender às suas necessidades comerciais e ajudá-lo a crescer.</p>
+      <p>Estamos prontos para atender &#xe0;s suas necessidades comerciais e ajud&#xe1;-lo a crescer.</p>
       
       <span class="highlight-text">Entre em contato conosco e comece a vender mais hoje! &#x1f680;</span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Solicitar uma Demonstração</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Solicitar uma Demonstra&#xe7;&#xe3;o</a>
     </div>
   </div>
 
@@ -832,18 +874,18 @@ body {
     <h2>Por que Escolher a TorresWebSec?</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <h3>Inovação &amp; Expertise</h3>
-        <p>Soluções projetadas para otimizar suas operações e impulsionar o crescimento.</p>
+        <h3>Inova&#xe7;&#xe3;o &amp; Expertise</h3>
+        <p>Solu&#xe7;&#xf5;es projetadas para otimizar suas opera&#xe7;&#xf5;es e impulsionar o crescimento.</p>
       </div>
       
       <div class="benefit-card">
-        <h3>Serviços Personalizados</h3>
-        <p>Soluções personalizadas adaptadas às necessidades específicas de cada empresa.</p>
+        <h3>Servi&#xe7;os Personalizados</h3>
+        <p>Solu&#xe7;&#xf5;es personalizadas adaptadas &#xe0;s necessidades espec&#xed;ficas de cada empresa.</p>
       </div>
       
       <div class="benefit-card">
         <h3>Maior Lucratividade</h3>
-        <p>Otimização de processos para melhor eficiência operacional.</p>
+        <p>Otimiza&#xe7;&#xe3;o de processos para melhor efici&#xea;ncia operacional.</p>
       </div>
     </div>
   </section>
@@ -871,7 +913,7 @@ body {
       </div>
       
       <div class="client-card">
-        <h3>Janaína Beauty</h3>
+        <h3>Jana&#xed;na Beauty</h3>
         <p>Site Simples</p>
         <a href="https://sites.google.com/view/janainabeauty" target="_blank">Visite o site &#x2192;</a>
       </div>
@@ -884,7 +926,7 @@ body {
       
       <div class="highlight-review">
         <div class="stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
-        <p>Relatório Técnico: Nossa equipe identificou e relatou um erro nos terminais de pagamento da TPG em Genebra, Suíça. Esta ação essencial evitou uma perda de 17.280 CHF por ano.</p>
+        <p>Relat&#xf3;rio T&#xe9;cnico: Nossa equipe identificou e relatou um erro nos terminais de pagamento da TPG em Genebra, Su&#xed;&#xe7;a. Esta a&#xe7;&#xe3;o essencial evitou uma perda de 17.280 CHF por ano.</p>
       </div>
     </div>
   </section>
@@ -904,8 +946,8 @@ body {
       <select name="subject" required>
         <option value>Escolha um assunto</option>
         <option value="torresbot">TorresBot</option>
-        <option value="web">Criação de Sites</option>
-        <option value="google">Presença no Google</option>
+        <option value="web">Cria&#xe7;&#xe3;o de Sites</option>
+        <option value="google">Presen&#xe7;a no Google</option>
         <option value="server">Servidor Privado</option>
         <option value="orders">Sistema de Pedidos Online</option>
         <option value="torrespay">TorresPay</option>
@@ -920,9 +962,9 @@ body {
 
   <!-- Footer -->
   <footer class="footer">
-    <img src="https://flagcdn.com/w20/ch.png" alt="Bandeira da Suíça" class="flag">
+    <img src="https://flagcdn.com/w20/ch.png" alt="Bandeira da Su&#xed;&#xe7;a" class="flag">
     <img src="https://flagcdn.com/w20/br.png" alt="Bandeira do Brasil" class="flag">
-    <span>2025 TorresWebSec Inovação e Expertise</span>
+    <span>2025 TorresWebSec Inova&#xe7;&#xe3;o e Expertise</span>
     <a href="https://www.instagram.com/FLOWTECHNOLOGY_/" target="_blank">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
