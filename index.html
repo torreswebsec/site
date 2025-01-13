@@ -7,10 +7,11 @@
 <meta property="og:url" content="https://www.instagram.com/torreswebsec/">
 <style>
 :root {
-  --primary: #1E90FF; /* Change lime green to dodger blue */
-  --secondary: #87CEFA; /* Change light lime to light sky blue */
+  --primary: #8A2BE2; 
+  --secondary: #9370DB; 
   --dark: #1a1a1a;
   --light: #ffffff;
+  --background: #222222; 
 }
 
 * {
@@ -21,8 +22,8 @@
 }
 
 body {
-  background: var(--light);
-  color: var(--dark);
+  background: var(--background);
+  color: var(--light);
 }
 
 .navbar {
@@ -142,17 +143,16 @@ body {
   z-index: 2;
 }
 
+.hero-content h1,
 .hero-content p {
-  margin-bottom: 30px; /* Increase spacing between text and button */
+  color: var(--dark); 
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3); 
 }
 
-.hero-content .cta-button {
-  margin-top: 20px; /* Add additional spacing above button */
-}
-
-.services {
+.services, .projects, .clients {
   padding: 100px 50px;
-  background: #f9f9f9;
+  background: var(--background);
+  color: var(--light);
 }
 
 .services h2 {
@@ -170,12 +170,13 @@ body {
 }
 
 .service-card {
-  background: white;
+  background: var(--dark);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: 0.3s;
   cursor: pointer;
+  color: var(--light);
 }
 
 .service-card:hover {
@@ -386,18 +387,18 @@ body {
   
   .hero, .services, .why-flow, .delivery-system {
     padding: 20px;
-    text-align: left; /* Changed from center to left */
+    text-align: left; 
   }
   
   .services h2,
   .why-flow h2,
   .clients h2 {
-    text-align: left; /* Section headers left-aligned on mobile */
+    text-align: left; 
   }
   
   .benefit-card,
   .highlight-review {
-    text-align: left; /* Cards and reviews left-aligned on mobile */
+    text-align: left; 
   }
 }
 
@@ -544,11 +545,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Add margin above the CTA button in hero section */
-.hero-content .cta-button {
-  margin-top: 30px;
-}
-
 .project-showcase {
   display: grid;
   gap: 30px;
@@ -606,7 +602,7 @@ body {
     <div class="hero-content">
       <h1>TorresBot Seu Assistente Digital Inteligente</h1>
       <p>Um bot revolucion&#xe1;rio multifuncional que simplifica suas tarefas digitais. Com recursos avan&#xe7;ados de seguran&#xe7;a, comunica&#xe7;&#xe3;o e an&#xe1;lise, o TorresBot &#xe9; sua solu&#xe7;&#xe3;o completa de gest&#xe3;o digital.</p>
-      <a href="https://www.instagram.com/torreswebsec/" class="cta-button">Descubra o TorresBot</a>
+      <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">Descubra o TorresBot</a>
     </div>
   </section>
 
@@ -615,11 +611,32 @@ body {
     <div class="services-grid">
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          <path d="M17 14v6M14 17h6"/>
+        </svg>
+        <h3>TorresBot</h3>
+        <p>Assistente digital inteligente com recursos avan&#xe7;ados de seguran&#xe7;a, comunica&#xe7;&#xe3;o e an&#xe1;lise para simplificar suas tarefas digitais.</p>
+        <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">Saiba Mais &#x2192;</a>
+      </div>
+      
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          <path d="M17 14v6M14 17h6"/>
+        </svg>
+        <h3>TorresPay</h3>
+        <p>Solu&#xe7;&#xf5;es de pagamento personalizadas para empresas e indiv&#xed;duos com taxas competitivas e suporte personalizado.</p>
+        <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;torrespayModal&apos;)">Saiba Mais &#x2192;</a>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
           <path d="M12 12h.01M8 12h.01M16 12h.01"/>
         </svg>
         <h3>Cria&#xe7;&#xe3;o de Sites</h3>
         <p>Sites personalizados com design moderno e responsivo, otimizados para SEO e adaptados &#xe0;s suas necessidades.</p>
+        <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;webModal&apos;)">Saiba Mais &#x2192;</a>
       </div>
       
       <div class="service-card">
@@ -642,11 +659,10 @@ body {
 
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          <path d="M17 14v6M14 17h6"/>
+          <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
-        <h3>TorresPay</h3>
-        <p>Solu&#xe7;&#xf5;es de pagamento personalizadas para empresas e indiv&#xed;duos com taxas competitivas e suporte personalizado.</p>
+        <h3>Sistema de Pedidos Online</h3>
+        <p>Sistema propriet&#xe1;rio para restaurantes sem taxas mensais ou intermedi&#xe1;rios.</p>
       </div>
     </div>
   </section>
@@ -923,7 +939,7 @@ body {
       
       <span class="highlight-text">Entre em contato conosco e comece a vender mais hoje! </span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Solicitar uma Demonstra&#xe7;&#xe3;o</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Solicitar uma Demonstra&#xe7;&#xf5;es</a>
     </div>
   </div>
 
@@ -1106,7 +1122,7 @@ document.querySelector('a[href="#torresbot"]').addEventListener('click', e => {
 });
 document.querySelector('.hero .cta-button').addEventListener('click', e => {
   e.preventDefault();
-  window.location.href = 'https://www.instagram.com/torreswebsec/';
+  openModal('torresbotModal');
 });
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
