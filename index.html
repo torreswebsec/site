@@ -1,602 +1,605 @@
-<html><head><base href="https://www.instagram.com/torreswebsec/">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TorresWebSec - Digital Innovation</title>
-<meta property="og:url" content="https://www.instagram.com/torreswebsec/">
-<style>
-:root {
-  --primary: #009639; 
-  --secondary: #007a2e; 
-  --dark: #1a1a1a;
-  --light: #ffffff;
-  --background: #222222; 
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background: var(--background);
-  color: var(--light);
-}
-
-.navbar {
-  padding: 20px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  transition: 0.3s;
-}
-
-.navbar.scrolled {
-  background: var(--dark);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--primary);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.logo svg {
-  margin-right: 10px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  color: var(--dark);
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.navbar.scrolled .nav-links a {
-  color: var(--light);
-}
-
-.nav-links a:hover {
-  color: var(--primary);
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 0 50px;
-  background: linear-gradient(135deg, var(--background) 60%, var(--secondary) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(2px 2px at 40px 60px, var(--primary) 50%, transparent 100%),
-    radial-gradient(2px 2px at 20px 50px, var(--primary) 50%, transparent 100%),
-    radial-gradient(2px 2px at 30px 100px, var(--primary) 50%, transparent 100%),
-    radial-gradient(2px 2px at 80px 120px, var(--primary) 50%, transparent 100%),
-    radial-gradient(2px 2px at 110px 80px, var(--primary) 50%, transparent 100%),
-    radial-gradient(2px 2px at 90px 40px, var(--primary) 50%, transparent 100%);
-  background-size: 150px 150px;
-  animation: animateNodes 8s linear infinite;
-  opacity: 0.15;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(45deg, transparent 48%, var(--primary) 50%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, var(--primary) 50%, transparent 52%);
-  background-size: 60px 60px;
-  animation: animateGrid 4s linear infinite;
-  opacity: 0.1;
-}
-
-@keyframes animateNodes {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-150px);
-  }
-}
-
-@keyframes animateGrid {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 60px 60px;
-  }
-}
-
-.hero-content {
-  max-width: 600px;
-  z-index: 2;
-}
-
-.hero-content h1,
-.hero-content p {
-  color: var(--light);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
-}
-
-.services, .projects, .clients, .why-flow {
-  padding: 100px 50px;
-  background: var(--background);
-  color: var(--light);
-}
-
-.services h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-card {
-  background: rgba(0,0,0,0.2);
-  border: 1px solid var(--primary);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  color: var(--light);
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,150,57,0.3);
-}
-
-.service-card h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-}
-
-.service-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-}
-
-.service-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--primary);
-  color: var(--light);
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  transition: 0.3s;
-}
-
-.service-button:hover {
-  background: var(--secondary);
-  transform: translateY(-2px);
-}
-
-.why-flow {
-  padding: 100px 50px;
-  background: var(--background);
-  color: var(--light);
-}
-
-.why-flow h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.benefit-card {
-  text-align: center;
-  padding: 20px;
-}
-
-.benefit-card h3 {
-  color: var(--primary);
-  margin: 15px 0;
-}
-
-/* Adding new modal styles */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 2000;
-  overflow-y: auto;
-}
-
-.modal-content {
-  background: var(--dark);
-  color: var(--light);
-  width: 90%;
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 40px;
-  border-radius: 15px;
-  position: relative;
-}
-
-.modal-content h2 {
-  color: var(--primary);
-  margin-bottom: 30px;
-  font-size: 32px;
-}
-
-.modal-content h3 {
-  color: var(--primary);
-  margin: 25px 0 15px;
-  font-size: 24px;
-}
-
-.modal-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.modal-content li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-
-.modal-content li:before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-}
-
-.modal-content p {
-  margin: 15px 0;
-  line-height: 1.6;
-}
-
-.highlight-text {
-  color: var(--primary);
-  font-size: 1.1em;
-  font-weight: 500;
-  margin: 20px 0;
-  display: block;
-}
-
-.close-modal {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--light);
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-.close-modal:hover {
-  opacity: 1;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 100px auto;
-  padding: 30px;
-  background: var(--dark);
-  color: var(--light);
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--light);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  font-size: 16px;
-  background: var(--dark);
-  color: var(--primary);
-}
-
-.form-group textarea {
-  height: 150px;
-}
-
-.form-group select option {
-  background: var(--dark);
-  color: var(--primary);
-}
-
-.form-group select option:checked {
-  background: var(--primary);
-  color: var(--dark);
-}
-
-.footer {
-  background: var(--dark);
-  color: var(--light);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer a {
-  color: var(--light);
-  text-decoration: none;
-}
-
-.flag {
-  width: 24px;
-  height: 24px;
-  margin: 0 5px;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .hero, .services, .why-flow, .delivery-system {
-    padding: 20px;
-    text-align: left; 
-  }
-  
-  .services h2,
-  .why-flow h2,
-  .clients h2 {
-    text-align: left; 
-  }
-  
-  .benefit-card,
-  .highlight-review {
-    text-align: left; 
-  }
-}
-
-/* Add to existing CSS */
-.modal-content ul {
-    margin: 20px 0;
-}
-
-.modal-content li {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.modal-content li strong {
-    color: var(--primary);
-    display: block;
-    margin-bottom: 5px;
-}
-
-.modal-content .cta-button {
-    display: block;
-    width: fit-content;
-    margin: 30px auto 0;
-}
-
-/* New styles for delivery system section */
-.delivery-system {
-  padding: 50px 50px 100px;
-  background: var(--background);
-}
-
-.delivery-system .service-card {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* New styles for clients section */
-.clients {
-  padding: 100px 50px;
-  background: var(--background);
-}
-
-.clients h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: var(--light);
-}
-
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.client-card {
-  background: var(--dark);
-  padding: 30px;
-  border-radius: 15px;
-  color: var(--light);
-  transition: transform 0.3s;
-}
-
-.client-card:hover {
-  transform: translateY(-5px);
-}
-
-.client-card h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-  font-size: 24px;
-}
-
-.client-card a {
-  color: var(--primary);
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-  transition: color 0.3s;
-}
-
-.client-card a:hover {
-  color: var(--secondary);
-}
-
-.highlight-review {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 30px;
-  background: var(--dark);
-  border-radius: 15px;
-  margin-top: 30px;
-}
-
-.highlight-review p {
-  color: var(--light);
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.stars {
-  color: var(--primary);
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-/* New styles for projects section */
-.projects {
-  padding: 100px 50px;
-  background: var(--background);
-}
-
-.projects h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: var(--light);
-}
-
-.service-card .cta-button {
-  margin-top: 20px;
-  font-size: 0.9em;
-  padding: 10px 20px;
-}
-
-/* Add new CSS class for CTA button */
-.cta-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--primary);
-  color: var(--light);
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cta-button:hover {
-  background: var(--secondary);
-  transform: translateY(-2px);
-}
-
-.project-showcase {
-  display: grid;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.project-item {
-  background: rgba(0,0,0,0.2);
-  padding: 25px;
-  border-radius: 10px;
-  border: 1px solid var(--primary);
-}
-
-.project-item h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-}
-
-.project-item p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-.project-note {
-  color: var(--secondary);
-  font-style: italic;
-  margin: 15px 0;
-  padding: 10px;
-  border-left: 3px solid var(--primary);
-}
-
-.project-item .cta-button {
-  margin-top: 15px;
-}
-</style>
+<html>
+<head>
+  <base href="https://www.instagram.com/torreswebsec/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TorresWebSec - Innovation Num&#xe9;rique</title>
+  <meta property="og:url" content="https://www.instagram.com/torreswebsec/">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16825104368"></script>
+  <style>
+    :root {
+      --primary: #009639; 
+      --secondary: #007a2e; 
+      --dark: #1a1a1a;
+      --light: #ffffff;
+      --background: #222222; 
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--light);
+    }
+
+    .navbar {
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      transition: 0.3s;
+    }
+
+    .navbar.scrolled {
+      background: var(--dark);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo svg {
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--light);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 50px;
+      background: linear-gradient(135deg, var(--background) 60%, var(--secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(2px 2px at 40px 60px, var(--primary) 50%, transparent 100%),
+        radial-gradient(2px 2px at 20px 50px, var(--primary) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30px 100px, var(--primary) 50%, transparent 100%),
+        radial-gradient(2px 2px at 80px 120px, var(--primary) 50%, transparent 100%),
+        radial-gradient(2px 2px at 110px 80px, var(--primary) 50%, transparent 100%),
+        radial-gradient(2px 2px at 90px 40px, var(--primary) 50%, transparent 100%);
+      background-size: 150px 150px;
+      animation: animateNodes 8s linear infinite;
+      opacity: 0.15;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(45deg, transparent 48%, var(--primary) 50%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, var(--primary) 50%, transparent 52%);
+      background-size: 60px 60px;
+      animation: animateGrid 4s linear infinite;
+      opacity: 0.1;
+    }
+
+    @keyframes animateNodes {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-150px);
+      }
+    }
+
+    @keyframes animateGrid {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 60px 60px;
+      }
+    }
+
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .hero-content h1,
+    .hero-content p {
+      color: var(--light);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
+
+    .services, .projects, .clients, .why-flow {
+      padding: 100px 50px;
+      background: var(--background);
+      color: var(--light);
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--primary);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      color: var(--light);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,150,57,0.3);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .service-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .service-button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .why-flow {
+      padding: 100px 50px;
+      background: var(--background);
+      color: var(--light);
+    }
+
+    .why-flow h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .benefit-card h3 {
+      color: var(--primary);
+      margin: 15px 0;
+    }
+
+    /* Adding new modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: var(--dark);
+      color: var(--light);
+      width: 90%;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .modal-content h3 {
+      color: var(--primary);
+      margin: 25px 0 15px;
+      font-size: 24px;
+    }
+
+    .modal-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .modal-content li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .modal-content li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .modal-content p {
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .highlight-text {
+      color: var(--primary);
+      font-size: 1.1em;
+      font-weight: 500;
+      margin: 20px 0;
+      display: block;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--light);
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .close-modal:hover {
+      opacity: 1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 30px;
+      background: var(--dark);
+      color: var(--light);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--light);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--primary);
+      border-radius: 5px;
+      font-size: 16px;
+      background: var(--dark);
+      color: var(--primary);
+    }
+
+    .form-group textarea {
+      height: 150px;
+    }
+
+    .form-group select option {
+      background: var(--dark);
+      color: var(--primary);
+    }
+
+    .form-group select option:checked {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .footer {
+      background: var(--dark);
+      color: var(--light);
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer a {
+      color: var(--light);
+      text-decoration: none;
+    }
+
+    .flag {
+      width: 24px;
+      height: 24px;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero, .services, .why-flow, .delivery-system {
+        padding: 20px;
+        text-align: left; 
+      }
+      
+      .services h2,
+      .why-flow h2,
+      .clients h2 {
+        text-align: left; 
+      }
+      
+      .benefit-card,
+      .highlight-review {
+        text-align: left; 
+      }
+    }
+
+    /* Add to existing CSS */
+    .modal-content ul {
+        margin: 20px 0;
+    }
+
+    .modal-content li {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .modal-content li strong {
+        color: var(--primary);
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .modal-content .cta-button {
+        display: block;
+        width: fit-content;
+        margin: 30px auto 0;
+    }
+
+    /* New styles for delivery system section */
+    .delivery-system {
+      padding: 50px 50px 100px;
+      background: var(--background);
+    }
+
+    .delivery-system .service-card {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* New styles for clients section */
+    .clients {
+      padding: 100px 50px;
+      background: var(--background);
+    }
+
+    .clients h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: var(--light);
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .client-card {
+      background: var(--dark);
+      padding: 30px;
+      border-radius: 15px;
+      color: var(--light);
+      transition: transform 0.3s;
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .client-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .client-card a {
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: color 0.3s;
+    }
+
+    .client-card a:hover {
+      color: var(--secondary);
+    }
+
+    .highlight-review {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 30px;
+      background: var(--dark);
+      border-radius: 15px;
+      margin-top: 30px;
+    }
+
+    .highlight-review p {
+      color: var(--light);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .stars {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    /* New styles for projects section */
+    .projects {
+      padding: 100px 50px;
+      background: var(--background);
+    }
+
+    .projects h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 50px;
+      color: var(--light);
+    }
+
+    .service-card .cta-button {
+      margin-top: 20px;
+      font-size: 0.9em;
+      padding: 10px 20px;
+    }
+
+    /* Add new CSS class for CTA button */
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .project-showcase {
+      display: grid;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .project-item {
+      background: rgba(0,0,0,0.2);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+    }
+
+    .project-item h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .project-item p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .project-note {
+      color: var(--secondary);
+      font-style: italic;
+      margin: 15px 0;
+      padding: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .project-item .cta-button {
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -608,23 +611,23 @@ body {
     </a>
     <div class="nav-links">
       <a href="#torresbot">TorresBot</a>
-      <a href="#services">Servi&#xe7;os</a>
-      <a href="#why-flow">Por que TorresWebSec?</a>
-      <a href="#clients">Clientes</a>
-      <a href="#contactForm">Contato</a>
+      <a href="#services">Services</a>
+      <a href="#why-flow">Pourquoi TorresWebSec?</a>
+      <a href="#clients">Clients</a>
+      <a href="#contactForm">Contact</a>
     </div>
   </nav>
 
   <section class="hero" id="torresbot">
     <div class="hero-content">
-      <h1>TorresBot Seu Assistente Digital Inteligente</h1>
-      <p>Um bot revolucion&#xe1;rio multifuncional que simplifica suas tarefas digitais. Com recursos avan&#xe7;ados de seguran&#xe7;a, comunica&#xe7;&#xe3;o e an&#xe1;lise, o TorresBot &#xe9; sua solu&#xe7;&#xe3;o completa de gest&#xe3;o digital.</p>
-      <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">Descubra o TorresBot</a>
+      <h1>TorresBot Votre Assistant Num&#xe9;rique Intelligent</h1>
+      <p>Un bot r&#xe9;volutionnaire multifonctionnel qui simplifie vos t&#xe2;ches num&#xe9;riques. Avec des fonctionnalit&#xe9;s avanc&#xe9;es de s&#xe9;curit&#xe9;, de communication et d&apos;analyse, TorresBot est votre solution compl&#xe8;te de gestion num&#xe9;rique.</p>
+      <a href="#" class="cta-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">D&#xe9;couvrir TorresBot</a>
     </div>
   </section>
 
   <section class="services" id="services">
-    <h2>Nossos Servi&#xe7;os</h2>
+    <h2>Nos Services</h2>
     <div class="services-grid">
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
@@ -632,9 +635,9 @@ body {
           <circle cx="12" cy="14" r="3"/>
           <path d="M12 17v5"/>
         </svg>
-        <h3>&#x1f916; TorresBot</h3>
-        <p>Assistente digital inteligente com recursos avan&#xe7;ados de seguran&#xe7;a, comunica&#xe7;&#xe3;o e an&#xe1;lise para simplificar suas tarefas digitais.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> TorresBot</h3>
+        <p>Assistant num&#xe9;rique intelligent avec des fonctionnalit&#xe9;s avanc&#xe9;es de s&#xe9;curit&#xe9;, de communication et d&apos;analyse pour simplifier vos t&#xe2;ches num&#xe9;riques.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torresbotModal&apos;)">En savoir plus &#x2192;</a>
       </div>
       
       <div class="service-card">
@@ -642,18 +645,18 @@ body {
           <rect x="2" y="5" width="20" height="14" rx="2"/>
           <path d="M2 10h20"/>
         </svg>
-        <h3>&#x1f4b3; TorresPay</h3>
-        <p>Solu&#xe7;&#xf5;es de pagamento personalizadas para empresas e indiv&#xed;duos com taxas competitivas e suporte personalizado.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torrespayModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> TorresPay</h3>
+        <p>Solutions de paiement personnalis&#xe9;es pour les entreprises et les individus avec des tarifs comp&#xe9;titifs et un support personnalis&#xe9;.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torrespayModal&apos;)">En savoir plus &#x2192;</a>
       </div>
 
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
-        <h3>&#x1f310; TorresNet</h3>
-        <p>Internet de alta velocidade com planos personalizados para sua necessidade.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torresnetModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> TorresNet</h3>
+        <p>Internet &#xe0; haute vitesse avec des plans personnalis&#xe9;s pour vos besoins.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;torresnetModal&apos;)">En savoir plus &#x2192;</a>
       </div>
       
       <div class="service-card">
@@ -661,9 +664,9 @@ body {
           <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
-        <h3>&#x1f310; Cria&#xe7;&#xe3;o de Sites</h3>
-        <p>Sites personalizados com design moderno e responsivo, otimizados para SEO e adaptados &#xe0;s suas necessidades.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;webModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> Cr&#xe9;ation de Sites Web</h3>
+        <p>Sites web personnalis&#xe9;s avec un design moderne et responsive, optimis&#xe9;s pour le SEO et adapt&#xe9;s &#xe0; vos besoins.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;webModal&apos;)">En savoir plus &#x2192;</a>
       </div>
       
       <div class="service-card">
@@ -672,9 +675,9 @@ body {
           <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
           <path d="M2 12h20"/>
         </svg>
-        <h3>G Presen&#xe7;a no Google</h3>
-        <p>Otimiza&#xe7;&#xe3;o completa do seu perfil no Google, incluindo fotos profissionais e gest&#xe3;o de avalia&#xe7;&#xf5;es.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;googleModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3>Pr&#xe9;sence Google</h3>
+        <p>Optimisation compl&#xe8;te de votre profil Google, y compris des photos professionnelles et une gestion des &#xe9;valuations.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;googleModal&apos;)">En savoir plus &#x2192;</a>
       </div>
       
       <div class="service-card">
@@ -682,18 +685,18 @@ body {
           <rect x="2" y="2" width="20" height="20" rx="2"/>
           <path d="M7 12h10M12 7v10"/>
         </svg>
-        <h3>&#x1f5a5;&#xfe0f; Servidor Privado</h3>
-        <p>Sua pr&#xf3;pria infraestrutura com total controle, seguran&#xe7;a avan&#xe7;ada e acesso remoto simplificado.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;serverModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> Serveur Priv&#xe9;</h3>
+        <p>Votre propre infrastructure avec un contr&#xf4;le total, une s&#xe9;curit&#xe9; avanc&#xe9;e et un acc&#xe8;s distant simplifi&#xe9;.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;serverModal&apos;)">En savoir plus &#x2192;</a>
       </div>
 
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
-        <h3>&#x1f37d;&#xfe0f; Sistema de Pedidos Online</h3>
-        <p>Sistema propriet&#xe1;rio para restaurantes sem taxas mensais ou intermedi&#xe1;rios.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;ordersModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3> Syst&#xe8;me de Commandes en Ligne</h3>
+        <p>Syst&#xe8;me propri&#xe9;taire pour les restaurants sans frais mensuels ou interm&#xe9;diaires.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;ordersModal&apos;)">En savoir plus &#x2192;</a>
       </div>
 
       <div class="service-card">
@@ -701,38 +704,38 @@ body {
           <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
           <path d="M12 12h.01M8 12h.01M16 12h.01"/>
         </svg>
-        <h3>Cria&#xe7;&#xe3;o de Sites</h3>
-        <p>Sites personalizados com design moderno e responsivo, otimizados para SEO e adaptados &#xe0;s suas necessidades.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;webModal&apos;)">Saiba Mais &#x2192;</a>
+        <h3>Cr&#xe9;ation de Sites Web</h3>
+        <p>Sites web personnalis&#xe9;s avec un design moderne et responsive, optimis&#xe9;s pour le SEO et adapt&#xe9;s &#xe0; vos besoins.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;webModal&apos;)">En savoir plus &#x2192;</a>
       </div>
     </div>
   </section>
 
   <!-- New section for Delivery System -->
   <section class="services delivery-system" id="delivery-system">
-    <h2>Sistema de Pedidos Online</h2>
+    <h2>Syst&#xe8;me de Commandes en Ligne</h2>
     <div class="services-grid">
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
-        <h3>Sistema de Pedidos para Restaurantes Personalizado</h3>
-        <p>Sistema propriet&#xe1;rio para restaurantes sem taxas mensais ou intermedi&#xe1;rios.</p>
+        <h3>Syst&#xe8;me de Commandes pour Restaurants Personnalis&#xe9;</h3>
+        <p>Syst&#xe8;me propri&#xe9;taire pour les restaurants sans frais mensuels ou interm&#xe9;diaires.</p>
       </div>
     </div>
   </section>
 
   <!-- New section for Projects -->
   <section class="services projects" id="projects">
-    <h2>Nossos Projetos</h2>
+    <h2>Nos Projets</h2>
     <div class="services-grid">
       <div class="service-card" onclick="openModal(&apos;projectsModal&apos;)">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
           <path d="M3 3h18v18H3zM8 12h8M12 8v8"/>
         </svg>
-        <h3>Nossos Projetos</h3>
-        <p>Explore nossa galeria de projetos para inspira&#xe7;&#xe3;o e exemplos pr&#xe1;ticos.</p>
-        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;projectsModal&apos;)">Ver Projetos &#x2192;</a>
+        <h3>Nos Projets</h3>
+        <p>D&#xe9;couvrez notre galerie de projets pour l&apos;inspiration et des exemples pratiques.</p>
+        <a href="#" class="service-button" onclick="event.preventDefault(); openModal(&apos;projectsModal&apos;)">Voir les Projets &#x2192;</a>
       </div>
     </div>
   </section>
@@ -741,59 +744,59 @@ body {
   <div id="torresbotModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;torresbotModal&apos;)">&#xd7;</span>
-      <h2>TorresBot 1.0 - A Solu&#xe7;&#xe3;o Digital que Simplifica Sua Vida</h2>
+      <h2>TorresBot 1.0 - La Solution Num&#xe9;rique qui Simplifie Votre Vie</h2>
       
-      <p>TorresBot 1.0 &#xe9; um assistente digital multifuncional projetado para profissionais que precisam de praticidade, seguran&#xe7;a e efici&#xea;ncia no mundo digital. Com ferramentas poderosas e intuitivas, permite que voc&#xea; realize diversas tarefas essenciais de forma r&#xe1;pida e f&#xe1;cil.</p>
+      <p>TorresBot 1.0 est un assistant num&#xe9;rique multifonctionnel con&#xe7;u pour les professionnels qui ont besoin de praticit&#xe9;, de s&#xe9;curit&#xe9; et d&apos;efficacit&#xe9; dans le monde num&#xe9;rique. Avec des outils puissants et intuitifs, il permet de r&#xe9;aliser diverses t&#xe2;ches essentielles de mani&#xe8;re rapide et facile.</p>
       
-      <h3> O Que Voc&#xea; Pode Fazer com o TorresBot</h3>
+      <h3> Que Puis-je Faire avec TorresBot</h3>
       <ul>
         <li>
-          <strong>Captura de Dados</strong>
-          Coleta r&#xe1;pida de informa&#xe7;&#xf5;es como fotos, grava&#xe7;&#xf5;es de &#xe1;udio, endere&#xe7;os IP e localiza&#xe7;&#xe3;o precisa para investiga&#xe7;&#xf5;es digitais ou seguran&#xe7;a.
+          <strong>Capture de Donn&#xe9;es</strong>
+          Collecte rapide d&apos;informations telles que des photos, des enregistrements audio, des adresses IP et des localisations pr&#xe9;cises pour des investigations num&#xe9;riques ou de la s&#xe9;curit&#xe9;.
         </li>
         <li>
-          <strong>Localiza&#xe7;&#xe3;o de Emails Corporativos</strong>
-          Descubra emails de executivos e funcion&#xe1;rios importantes de qualquer empresa usando apenas o dom&#xed;nio. Nossa ferramenta de busca avan&#xe7;ada utiliza t&#xe9;cnicas de OSINT para encontrar endere&#xe7;os de email v&#xe1;lidos associados ao dom&#xed;nio da empresa.
+          <strong>Localisation d&apos;Emails d&apos;Entreprises</strong>
+          D&#xe9;couvrez les emails d&apos;ex&#xe9;cutifs et de fonctionnaires importants de n&apos;importe quelle entreprise en utilisant seulement le domaine. Notre outil de recherche avanc&#xe9;e utilise des techniques d&apos;OSINT pour trouver des adresses email valides associ&#xe9;es au domaine de l&apos;entreprise.
         </li>
         <li>
-          <strong>SMS Mundial</strong>
-          Envie mensagens de texto para qualquer n&#xfa;mero no mundo de forma simples e eficiente. Perfeito para contato direto, seja para uso pessoal ou profissional.
+          <strong>SMS Mondial</strong>
+          Envoyez des messages texte &#xe0; n&apos;importe quel num&#xe9;ro dans le monde de mani&#xe8;re simple et efficace. Parfait pour un contact direct, que ce soit pour une utilisation personnelle ou professionnelle.
         </li>
         <li>
-          <strong>Investiga&#xe7;&#xe3;o com Sherlock</strong>
-          Localize perfis de redes sociais e outras informa&#xe7;&#xf5;es online associadas a um nome de usu&#xe1;rio em mais de 350 sites. Perfeito para investiga&#xe7;&#xf5;es digitais e verifica&#xe7;&#xe3;o de identidade.
+          <strong>Investigation avec Sherlock</strong>
+          Localisez des profils de r&#xe9;seaux sociaux et d&apos;autres informations en ligne associ&#xe9;es &#xe0; un nom d&apos;utilisateur sur plus de 350 sites. Parfait pour les investigations num&#xe9;riques et la v&#xe9;rification d&apos;identit&#xe9;.
         </li>
         <li>
-          <strong>Convers&#xe3;o de Texto em &#xc1;udio</strong>
-          Transforme seus textos em arquivos de &#xe1;udio para facilitar o acesso &#xe0; informa&#xe7;&#xe3;o ou criar apresenta&#xe7;&#xf5;es din&#xe2;micas.
+          <strong>Conversion de Texte en Audio</strong>
+          Transformez vos textes en fichiers audio pour faciliter l&apos;acc&#xe8;s &#xe0; l&apos;information ou cr&#xe9;er des pr&#xe9;sentations dynamiques.
         </li>
         <li>
-          <strong>An&#xe1;lise com VirusTotal</strong>
-          Verifique arquivos ou links para identificar amea&#xe7;as potenciais e garantir a seguran&#xe7;a de seus dispositivos.
+          <strong>Analyse avec VirusTotal</strong>
+          V&#xe9;rifiez les fichiers ou les liens pour identifier les menaces potentielles et garantir la s&#xe9;curit&#xe9; de vos appareils.
         </li>
         <li>
-          <strong>Gerador de QR Code</strong>
-          Crie c&#xf3;digos QR personalizados em segundos para compartilhar links, informa&#xe7;&#xf5;es ou campanhas facilmente.
+          <strong>G&#xe9;n&#xe9;rateur de Code QR</strong>
+          Cr&#xe9;ez des codes QR personnalis&#xe9;s en quelques secondes pour partager des liens, des informations ou des campagnes facilement.
         </li>
         <li>
-          <strong>Consulta Whois de Dom&#xed;nio</strong>
-          Obtenha informa&#xe7;&#xf5;es detalhadas sobre sites, incluindo propriet&#xe1;rio, data de registro e servidores DNS.
+          <strong>Consultation Whois de Domaine</strong>
+          Obtenez des informations d&#xe9;taill&#xe9;es sur les sites, y compris le propri&#xe9;taire, la date d&apos;enregistrement et les serveurs DNS.
         </li>
         <li>
-          <strong>Verifica&#xe7;&#xe3;o de Certificado SSL</strong>
-          Garanta que sua navega&#xe7;&#xe3;o seja segura verificando a validade dos certificados SSL dos sites que voc&#xea; visita.
+          <strong>V&#xe9;rification de Certificat SSL</strong>
+          Assurez-vous que votre navigation est s&#xe9;curis&#xe9;e en v&#xe9;rifiant la validit&#xe9; des certificats SSL des sites que vous visitez.
         </li>
         <li>
-          <strong>Verifica&#xe7;&#xe3;o de IP P&#xfa;blico</strong>
-          Descubra seu endere&#xe7;o IP p&#xfa;blico rapidamente e acesse informa&#xe7;&#xf5;es adicionais relevantes.
+          <strong>V&#xe9;rification de l&apos;Adresse IP Publique</strong>
+          D&#xe9;couvrez votre adresse IP publique rapidement et acc&#xe9;dez &#xe0; des informations suppl&#xe9;mentaires pertinentes.
         </li>
         <li>
-          <strong>Gerador de Senhas Seguras</strong>
-          Proteja suas contas online com senhas fortes e seguras geradas automaticamente.
+          <strong>G&#xe9;n&#xe9;rateur de Mot de Passe S&#xe9;curis&#xe9;</strong>
+          Prot&#xe9;gez vos comptes en ligne avec des mots de passe forts et s&#xe9;curis&#xe9;s g&#xe9;n&#xe9;r&#xe9;s automatiquement.
         </li>
       </ul>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torresbotModal&apos;)">Experimente o TorresBot</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torresbotModal&apos;)">Essayer TorresBot</a>
     </div>
   </div>
 
@@ -801,32 +804,32 @@ body {
   <div id="webModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;webModal&apos;)">&#xd7;</span>
-      <h2>Cria&#xe7;&#xe3;o de Sites Personalizados</h2>
-      <span class="highlight-text">Nossa abordagem para cria&#xe7;&#xe3;o de sites &#xe9; totalmente personalizada, oferecendo duas op&#xe7;&#xf5;es principais para atender diferentes necessidades e or&#xe7;amentos:</span>
+      <h2>Cr&#xe9;ation de Sites Web Personnalis&#xe9;s</h2>
+      <span class="highlight-text">Notre approche de cr&#xe9;ation de sites web est totalement personnalis&#xe9;e, offrant deux options principales pour r&#xe9;pondre &#xe0; diff&#xe9;rents besoins et budgets :</span>
       
-      <h3>Site Simples - A Partir de 500 CHF (Sem taxas mensais)</h3>
+      <h3>Site Simple - &#xc0; partir de 500 CHF (Sans frais mensuels)</h3>
       <ul>
-        <li>Design moderno e responsivo</li>
-        <li>Otimiza&#xe7;&#xe3;o b&#xe1;sica para SEO</li>
-        <li>At&#xe9; 5 p&#xe1;ginas</li>
-        <li>Integra&#xe7;&#xe3;o com redes sociais</li>
-        <li>Formul&#xe1;rio de contato</li>
-        <li>Hospedagem inclusa</li>
+        <li>Design moderne et responsive</li>
+        <li>Optimisation basique pour le SEO</li>
+        <li>Jusqu&apos;&#xe0; 5 pages</li>
+        <li>Int&#xe9;gration avec les r&#xe9;seaux sociaux</li>
+        <li>Formulaire de contact</li>
+        <li>H&#xe9;bergement inclus</li>
       </ul>
 
-      <h3>Site Profissional - A Partir de 800 CHF</h3>
+      <h3>Site Professionnel - &#xc0; partir de 800 CHF</h3>
       <ul>
-        <li>Design premium e personalizado</li>
-        <li>SEO avan&#xe7;ado</li>
-        <li>P&#xe1;ginas ilimitadas</li>
-        <li>Sistema de gerenciamento de conte&#xfa;do</li>
-        <li>E-commerce (opcional)</li>
-        <li>Integra&#xe7;&#xf5;es avan&#xe7;adas</li>
-        <li>Suporte priorit&#xe1;rio</li>
-        <li>An&#xe1;lises e relat&#xf3;rios</li>
+        <li>Design premium et personnalis&#xe9;</li>
+        <li>SEO avanc&#xe9;</li>
+        <li>Pages illimit&#xe9;es</li>
+        <li>Syst&#xe8;me de gestion de contenu</li>
+        <li>E-commerce (optional)</li>
+        <li>Int&#xe9;grations avanc&#xe9;es</li>
+        <li>Support prioritaire</li>
+        <li>Analyses et rapports</li>
       </ul>
 
-      <span class="highlight-text">Cada projeto &#xe9; desenvolvido com aten&#xe7;&#xe3;o aos detalhes e foco em resultados, garantindo que seu site n&#xe3;o apenas tenha uma apar&#xea;ncia extraordin&#xe1;ria, mas tamb&#xe9;m gere resultados reais para o seu neg&#xf3;cio.</span>
+      <span class="highlight-text">Chaque projet est d&#xe9;velopp&#xe9; avec attention aux d&#xe9;tails et un focus sur les r&#xe9;sultats, garantissant que votre site web n&apos;a pas seulement une apparence extraordinaire, mais g&#xe9;n&#xe8;re &#xe9;galement des r&#xe9;sultats r&#xe9;els pour votre entreprise.</span>
     </div>
   </div>
 
@@ -834,23 +837,23 @@ body {
   <div id="googleModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;googleModal&apos;)">&#xd7;</span>
-      <h2>Presen&#xe7;a Profissional no Google</h2>
-      <span class="highlight-text">Transformamos sua presen&#xe7;a digital com um servi&#xe7;o completo de otimiza&#xe7;&#xe3;o do Google:</span>
+      <h2>Pr&#xe9;sence Professionnelle sur Google</h2>
+      <span class="highlight-text">Nous transformons votre pr&#xe9;sence num&#xe9;rique avec un service complet d&apos;optimisation de Google :</span>
       
-      <h3>Nosso Pacote Completo Inclui:</h3>
+      <h3>Notre Forfait Complet Inclut :</h3>
       <ul>
-        <li>Cria&#xe7;&#xe3;o ou otimiza&#xe7;&#xe3;o do perfil de neg&#xf3;cios no Google</li>
-        <li>Sess&#xe3;o de fotos profissionais do seu estabelecimento</li>
-        <li>Produ&#xe7;&#xe3;o de v&#xed;deo promocional</li>
-        <li>Otimiza&#xe7;&#xe3;o de palavras-chave para maior visibilidade</li>
-        <li>Gest&#xe3;o ativa de avalia&#xe7;&#xf5;es e feedbacks</li>
-        <li>Atualiza&#xe7;&#xf5;es regulares e postagens promocionais</li>
-        <li>Integra&#xe7;&#xe3;o com Google Maps e SEO local</li>
-        <li>Relat&#xf3;rios de desempenho mensais</li>
-        <li>Monitoramento de concorrentes</li>
+        <li>Cr&#xe9;ation ou optimisation du profil d&apos;entreprise sur Google</li>
+        <li>S&#xe9;ance de photos professionnelles de votre &#xe9;tablissement</li>
+        <li>Production d&apos;une vid&#xe9;o promotionnelle</li>
+        <li>Optimisation des mots-cl&#xe9;s pour une meilleure visibilit&#xe9;</li>
+        <li>Gestion active des &#xe9;valuations et des retours</li>
+        <li>Mises &#xe0; jour r&#xe9;guli&#xe8;res et publications promotionnelles</li>
+        <li>Int&#xe9;gration avec Google Maps et SEO local</li>
+        <li>Rapports de performance mensuels</li>
+        <li>Surveillance des concurrents</li>
       </ul>
 
-      <span class="highlight-text">Nosso objetivo &#xe9; garantir que sua empresa apare&#xe7;a nos principais resultados de busca local e atraia mais clientes por meio de uma presen&#xe7;a online profissional e impactante.</span>
+      <span class="highlight-text">Notre objectif est de garantir que votre entreprise apparaisse dans les principaux r&#xe9;sultats de recherche locaux et attire plus de clients gr&#xe2;ce &#xe0; une pr&#xe9;sence en ligne professionnelle et impactante.</span>
     </div>
   </div>
 
@@ -858,29 +861,29 @@ body {
   <div id="serverModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;serverModal&apos;)">&#xd7;</span>
-      <h2>Servidor Privado - Sua Infraestrutura, Seu Controle</h2>
-      <span class="highlight-text">Enquanto outras empresas cobram taxas mensais entre 50-200 CHF ou 600-2400 CHF por ano, oferecemos uma solu&#xe7;&#xe3;o &#xfa;nica sem custos recorrentes:</span>
+      <h2>Serveur Priv&#xe9; - Votre Infrastructure, Votre Contr&#xf4;le</h2>
+      <span class="highlight-text">Alors que d&apos;autres entreprises facturent des frais mensuels entre 50-200 CHF ou 600-2400 CHF par an, nous offrons une solution unique sans co&#xfb;ts r&#xe9;currents :</span>
 
-      <h3>Vantagens Exclusivas:</h3>
+      <h3>Avantages Exclusifs :</h3>
       <ul>
-        <li>Pagamento &#xfa;nico - sem taxas mensais ou anuais</li>
-        <li>Instala&#xe7;&#xe3;o em sua casa ou empresa</li>
-        <li>Acesso remoto seguro de qualquer lugar do mundo</li>
-        <li>Total privacidade - seus dados permanecem na sua rede local</li>
-        <li>Backup autom&#xe1;tico e redund&#xe2;ncia de dados</li>
-        <li>Economia significativa a longo prazo</li>
-        <li>Capacidade de armazenamento flex&#xed;vel e expans&#xed;vel</li>
-        <li>Suporte t&#xe9;cnico especializado</li>
+        <li>Paiement unique - sans frais mensuels ou annuels</li>
+        <li>Installation chez vous ou dans votre entreprise</li>
+        <li>Acc&#xe8;s distant s&#xe9;curis&#xe9; depuis n&apos;importe o&#xf9; dans le monde</li>
+        <li>Totale confidentialit&#xe9; - vos donn&#xe9;es restent sur votre r&#xe9;seau local</li>
+        <li>Sauvegarde automatique et redondance des donn&#xe9;es</li>
+        <li>&#xc9;conomie significative &#xe0; long terme</li>
+        <li>Capacit&#xe9; de stockage flexible et extensible</li>
+        <li>Support technique sp&#xe9;cialis&#xe9;</li>
       </ul>
 
-      <span class="highlight-text">Compare com solu&#xe7;&#xf5;es de nuvem tradicionais:</span>
+      <span class="highlight-text">Comparez avec les solutions de cloud traditionnelles :</span>
       <ul>
-        <li>Dropbox Business: ~300 CHF/ano por usu&#xe1;rio</li>
-        <li>Google Workspace: ~150 CHF/ano por usu&#xe1;rio</li>
-        <li>Microsoft 365: ~120 CHF/ano por usu&#xe1;rio</li>
+        <li>Dropbox Business : ~300 CHF/an par utilisateur</li>
+        <li>Google Workspace : ~150 CHF/an par utilisateur</li>
+        <li>Microsoft 365 : ~120 CHF/an par utilisateur</li>
       </ul>
 
-      <span class="highlight-text">Com nosso servidor privado, voc&#xea; tem total controle sobre seus dados e reais economias a longo prazo, sem depender de servi&#xe7;os de terceiros.</span>
+      <span class="highlight-text">Avec notre serveur priv&#xe9;, vous avez un contr&#xf4;le total sur vos donn&#xe9;es et de r&#xe9;elles &#xe9;conomies &#xe0; long terme, sans d&#xe9;pendre des services de tiers.</span>
     </div>
   </div>
 
@@ -888,64 +891,64 @@ body {
   <div id="torrespayModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;torrespayModal&apos;)">&#xd7;</span>
-      <h2>TorresPay - Sua Solu&#xe7;&#xe3;o Completa de Pagamentos</h2>
+      <h2>TorresPay - Votre Solution Compl&#xe8;te de Paiements</h2>
       
-      <span class="highlight-text">Transforme seu neg&#xf3;cio com nossas solu&#xe7;&#xf5;es de processamento de pagamentos para pontos f&#xed;sicos e online</span>
+      <span class="highlight-text">Transformez votre entreprise avec nos solutions de traitement de paiements pour les points de vente physiques et en ligne</span>
       
-      <p>TorresPay &#xe9; um provedor de pagamentos abrangente projetado para ajudar empresas e indiv&#xed;duos a receberem pagamentos de forma segura e eficiente, seja em estabelecimentos f&#xed;sicos ou online. Nossa solu&#xe7;&#xe3;o se adapta &#xe0;s suas necessidades espec&#xed;ficas, garantindo uma experi&#xea;ncia de pagamento perfeita para voc&#xea; e seus clientes.</p>
+      <p>TorresPay est un fournisseur de paiements complet con&#xe7;u pour aider les entreprises et les individus &#xe0; recevoir des paiements de mani&#xe8;re s&#xe9;curis&#xe9;e et efficace, que ce soit dans des &#xe9;tablissements physiques ou en ligne. Notre solution s&apos;adapte &#xe0; vos besoins sp&#xe9;cifiques, garantissant une exp&#xe9;rience de paiement parfaite pour vous et vos clients.</p>
       
-      <h3>Por que escolher TorresPay?</h3>
+      <h3>Pourquoi Choisir TorresPay ?</h3>
       <ul>
         <li>
-          <strong>Pre&#xe7;os Competitivos</strong>
-          - Taxa de 3% para pagamentos em m&#xe1;quinas f&#xed;sicas
-          - Taxa de 4% para pagamentos online
-          - Pre&#xe7;os transparentes e diretos sem custos ocultos
+          <strong>Prix Comp&#xe9;titifs</strong>
+          - Tarif de 3% pour les paiements sur des machines physiques
+          - Tarif de 4% pour les paiements en ligne
+          - Prix transparents et directs sans co&#xfb;ts cach&#xe9;s
         </li>
         
         <li>
-          <strong>Solu&#xe7;&#xf5;es Completas</strong>
-          - M&#xe1;quinas de cart&#xe3;o para seu estabelecimento
-          - Gateway de pagamento para seu e-commerce
-          - Interface unificada para gest&#xe3;o de todas as transa&#xe7;&#xf5;es
+          <strong>Solutions Compl&#xe8;tes</strong>
+          - Machines de carte pour votre &#xe9;tablissement
+          - Passerelle de paiement pour votre e-commerce
+          - Interface unifi&#xe9;e pour la gestion de toutes les transactions
         </li>
         
         <li>
-          <strong>Integra&#xe7;&#xe3;o Personalizada</strong>
-          Solu&#xe7;&#xf5;es de pagamento adaptadas especificamente para seu modelo de neg&#xf3;cio e necessidades
+          <strong>Int&#xe9;gration Personnalis&#xe9;e</strong>
+          Solutions de paiement adapt&#xe9;es sp&#xe9;cifiquement &#xe0; votre mod&#xe8;le d&apos;entreprise et &#xe0; vos besoins
         </li>
         
         <li>
-          <strong>Suporte 24/7</strong>
-          Equipe de suporte t&#xe9;cnico dedicada dispon&#xed;vel 24 horas por dia
+          <strong>Support 24/7</strong>
+          &#xc9;quipe de support technique d&#xe9;di&#xe9;e disponible 24 heures sur 24
         </li>
         
         <li>
-          <strong>Processamento Seguro</strong>
-          Medidas de seguran&#xe7;a de &#xfa;ltima gera&#xe7;&#xe3;o para proteger suas transa&#xe7;&#xf5;es e dados dos clientes
+          <strong>Traitement S&#xe9;curis&#xe9;</strong>
+          Mesures de s&#xe9;curit&#xe9; de derni&#xe8;re g&#xe9;n&#xe9;ration pour prot&#xe9;ger vos transactions et les donn&#xe9;es de vos clients
         </li>
         
         <li>
-          <strong>Configura&#xe7;&#xe3;o R&#xe1;pida</strong>
-          Processo de integra&#xe7;&#xe3;o r&#xe1;pido para voc&#xea; come&#xe7;ar a aceitar pagamentos rapidamente
+          <strong>Configuration Rapide</strong>
+          Processus d&apos;int&#xe9;gration rapide pour que vous puissiez commencer &#xe0; accepter des paiements rapidement
         </li>
       </ul>
       
-      <h3>Recursos</h3>
+      <h3>Fonctionnalit&#xe9;s</h3>
       <ul>
-        <li>M&#xe1;quinas de cart&#xe3;o modernas e sem aluguel</li>
-        <li>Suporte a m&#xfa;ltiplos m&#xe9;todos de pagamento</li>
-        <li>Monitoramento de transa&#xe7;&#xf5;es em tempo real</li>
-        <li>Reconcilia&#xe7;&#xe3;o automatizada</li>
-        <li>P&#xe1;ginas de checkout personalizadas</li>
-        <li>An&#xe1;lises e relat&#xf3;rios detalhados</li>
-        <li>Suporte a pagamentos m&#xf3;veis</li>
-        <li>Dashboard unificado para gest&#xe3;o</li>
+        <li>Machines de carte modernes et sans location</li>
+        <li>Support de plusieurs m&#xe9;thodes de paiement</li>
+        <li>Surveillance des transactions en temps r&#xe9;el</li>
+        <li>R&#xe9;conciliation automatique</li>
+        <li>Pages de checkout personnalis&#xe9;es</li>
+        <li>Analyses et rapports d&#xe9;taill&#xe9;s</li>
+        <li>Support des paiements mobiles</li>
+        <li>Tableau de bord unifi&#xe9; pour la gestion</li>
       </ul>
 
-      <span class="highlight-text">Comece a aceitar pagamentos hoje com nossas taxas competitivas!</span>
+      <span class="highlight-text">Commencez &#xe0; accepter des paiements aujourd&apos;hui avec nos tarifs comp&#xe9;titifs !</span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torrespayModal&apos;)">Come&#xe7;ar com TorresPay</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;torrespayModal&apos;)">Commencer avec TorresPay</a>
     </div>
   </div>
 
@@ -953,34 +956,34 @@ body {
   <div id="ordersModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;ordersModal&apos;)">&#xd7;</span>
-      <h2>Aumente suas Vendas com um Sistema de Pedidos Online para Restaurantes</h2>
+      <h2>Augmentez vos Ventes avec un Syst&#xe8;me de Commandes en Ligne pour Restaurants</h2>
       
-      <p>Facilite o processo de pedido para seus clientes famintos e aumente suas vendas com widgets atraentes para restaurantes. Quanto mais f&#xe1;cil for encontrar os bot&#xf5;es de pedido em seu site, mais clientes voc&#xea; pode perder.</p>
+      <p>Facilitez le processus de commande pour vos clients affam&#xe9;s et augmentez vos ventes avec des widgets attrayants pour les restaurants. Plus il est facile de trouver les boutons de commande sur votre site, plus vous pouvez perdre de clients.</p>
       
-      <span class="highlight-text">Adicione os widgets &quot;Ver MENU e Fazer Pedido&quot; e &quot;Reservar Mesas&quot; ao seu site otimizado para vendas e veja como a reten&#xe7;&#xe3;o de clientes pode melhorar. Torne o processo de pedidos online simples, r&#xe1;pido e intuitivo.</span>
+      <span class="highlight-text">Ajoutez les widgets &#xab; Voir MENU et Faire une Commande &#xbb; et &#xab; R&#xe9;server des Tables &#xbb; &#xe0; votre site optimis&#xe9; pour les ventes et voyez comment la r&#xe9;tention des clients peut s&apos;am&#xe9;liorer. Rendez le processus de commande en ligne simple, rapide et intuitif.</span>
       
-      <h3>N&#xe3;o Tem um Site? N&#xf3;s Criamos Um para Voc&#xea;!</h3>
-      <p>Seu menu pode ser excelente, mas se o tr&#xe1;fego for baixo, temos a solu&#xe7;&#xe3;o. Oferecemos um site totalmente funcional para seu restaurante, com um sistema de pedidos online integrado.</p>
+      <h3>N&apos;avez-vous pas de Site ? Nous en Cr&#xe9;ons Un pour Vous !</h3>
+      <p>Votre menu peut &#xea;tre excellent, mais si le trafic est faible, nous avons la solution. Nous offrons un site web enti&#xe8;rement fonctionnel pour votre restaurant, avec un syst&#xe8;me de commande en ligne int&#xe9;gr&#xe9;.</p>
       
-      <span class="highlight-text">Empresas que utilizam nosso sistema otimizado para vendas aumentaram suas vendas online em at&#xe9; 162%!*</span>
+      <span class="highlight-text">Les entreprises qui utilisent notre syst&#xe8;me optimis&#xe9; pour les ventes ont augment&#xe9; leurs ventes en ligne de jusqu&apos;&#xe0; 162 % !*</span>
       
-      <h3>Veja Como &#xe9; F&#xe1;cil Come&#xe7;ar:</h3>
+      <h3>Voyez Comment c&apos;est Facile de Commencer :</h3>
       <ul>
-        <li>Entre em contato com nossa equipe.</li>
-        <li>Receba uma resposta em at&#xe9; 24 horas.</li>
-        <li>Obtenha um sistema completo, livre de taxas e intermedi&#xe1;rios.</li>
+        <li>Entrez en contact avec notre &#xe9;quipe.</li>
+        <li>Recevez une r&#xe9;ponse dans les 24 heures.</li>
+        <li>Obtenez un syst&#xe8;me complet, sans frais et sans interm&#xe9;diaires.</li>
       </ul>
       
-      <span class="highlight-text">Voc&#xea; pode ter um sistema de pedidos online funcionando hoje!</span>
+      <span class="highlight-text">Vous pouvez avoir un syst&#xe8;me de commande en ligne fonctionnel aujourd&apos;hui !</span>
       
-      <h3>Aceite Pedidos Online Diretamente do Seu Smartphone</h3>
-      <p>Nenhum dispositivo especial &#xe9; necess&#xe1;rio. Basta instalar o aplicativo gratuito de recibo de pedidos (dispon&#xed;vel para Android ou iOS) em seu smartphone, tablet ou iPad e come&#xe7;ar a aceitar pedidos com um simples toque na tela.</p>
+      <h3>Acceptez les Commandes en Ligne Directement depuis Votre Smartphone</h3>
+      <p>Aucun dispositif sp&#xe9;cial n&apos;est n&#xe9;cessaire. Il suffit d&apos;installer l&apos;application gratuite de r&#xe9;ception de commandes (disponible pour Android ou iOS) sur votre smartphone, tablette ou iPad et de commencer &#xe0; accepter des commandes avec un simple toucher sur l&apos;&#xe9;cran.</p>
       
-      <p>Estamos prontos para atender &#xe0;s suas necessidades comerciais e ajud&#xe1;-lo a crescer.</p>
+      <p>Nous sommes pr&#xea;ts &#xe0; r&#xe9;pondre &#xe0; vos besoins commerciaux et &#xe0; vous aider &#xe0; grandir.</p>
       
-      <span class="highlight-text">Entre em contato conosco e comece a vender mais hoje! </span>
+      <span class="highlight-text">Entrez en contact avec nous et commencez &#xe0; vendre plus aujourd&apos;hui ! </span>
       
-      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Solicitar uma Demonstra&#xe7;&#xe3;o</a>
+      <a href="#contactForm" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Demander une D&#xe9;monstration</a>
     </div>
   </div>
 
@@ -988,21 +991,21 @@ body {
   <div id="projectsModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;projectsModal&apos;)">&#xd7;</span>
-      <h2>Nossos Projetos</h2>
+      <h2>Nos Projets</h2>
       
       <div class="project-showcase">
         <div class="project-item">
-          <h3>Sistema de Pedidos para Pizzaria</h3>
-          <p>Um exemplo completo de sistema de pedidos online para restaurantes, demonstrando nossa solu&#xe7;&#xe3;o personalizada para o setor aliment&#xed;cio.</p>
-          <p class="project-note">Este projeto serve como demonstra&#xe7;&#xe3;o das funcionalidades que podemos implementar para seu restaurante.</p>
-          <a href="https://torreswebsec.github.io/forpizzaria/" target="_blank" class="cta-button">Visualizar Demonstra&#xe7;&#xe3;o &#x2192;</a>
+          <h3>Syst&#xe8;me de Commandes pour Pizzeria</h3>
+          <p>Un exemple complet de syst&#xe8;me de commandes en ligne pour les restaurants, d&#xe9;montrant notre solution personnalis&#xe9;e pour le secteur de l&apos;alimentation.</p>
+          <p class="project-note">Ce projet sert de d&#xe9;monstration des fonctionnalit&#xe9;s que nous pouvons impl&#xe9;menter pour votre restaurant.</p>
+          <a href="https://torreswebsec.github.io/forpizzaria/" target="_blank" class="cta-button">Visualiser la D&#xe9;monstration &#x2192;</a>
         </div>
 
         <div class="project-item">
-          <h3>Convite de Anivers&#xe1;rio Digital</h3>
-          <p>Uma solu&#xe7;&#xe3;o moderna e interativa para convites digitais, perfeita para eventos e celebra&#xe7;&#xf5;es.</p>
-          <p class="project-note">Este c&#xf3;digo pode ser usado como base para criar seu pr&#xf3;prio convite personalizado, adaptando cores, textos e estilos conforme sua necessidade.</p>
-          <a href="https://torreswebsec.github.io/digitalbirthdayinvitation/" target="_blank" class="cta-button">Visualizar Demonstra&#xe7;&#xe3;o &#x2192;</a>
+          <h3>Invitation d&apos;Anniversaire Num&#xe9;rique</h3>
+          <p>Une solution moderne et interactive pour les invitations num&#xe9;riques, parfaite pour les &#xe9;v&#xe9;nements et les c&#xe9;l&#xe9;brations.</p>
+          <p class="project-note">Ce code peut &#xea;tre utilis&#xe9; comme base pour cr&#xe9;er votre propre invitation personnalis&#xe9;e, en adaptant les couleurs, les textes et les styles selon vos besoins.</p>
+          <a href="https://torreswebsec.github.io/digitalbirthdayinvitation/" target="_blank" class="cta-button">Visualiser la D&#xe9;monstration &#x2192;</a>
         </div>
       </div>
     </div>
@@ -1012,94 +1015,94 @@ body {
   <div id="torresnetModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal(&apos;torresnetModal&apos;)">&#xd7;</span>
-      <h2>TorresNet - Internet de Alta Velocidade</h2>
+      <h2>TorresNet - Internet &#xe0; Haute Vitesse</h2>
       
-      <span class="highlight-text">Internet r&#xe1;pida e confi&#xe1;vel para sua casa ou empresa</span>
+      <span class="highlight-text">Internet rapide et fiable pour votre maison ou votre entreprise</span>
       
-      <h3>Nosso Plano Inicial</h3>
+      <h3>Nos Forfaits Initiaux</h3>
       <ul>
         <li>
-          <strong>Plano CHF 20/m&#xea;s</strong>
+          <strong>Forfait CHF 20/mois</strong>
           <ul>
-            <li>Pagamento inicial: CHF 35</li>
-            <li>SIM card com internet ilimitada por 1 m&#xea;s</li>
-            <li>N&#xfa;mero su&#xed;&#xe7;o incluindo</li>
-            <li>Modem incluindo (seu para sempre)</li>
-            <li>Apenas INTERNET (chamadas e SMS sob solicita&#xe7;&#xe3;o)</li>
+            <li>Paiement initial : CHF 35</li>
+            <li>Carte SIM avec internet illimit&#xe9; pour 1 mois</li>
+            <li>Num&#xe9;ro de suivi inclus</li>
+            <li>Modem inclus (&#xe0; vous pour toujours)</li>
+            <li>Seulement INTERNET (appels et SMS sur demande)</li>
           </ul>
         </li>
       </ul>
 
-      <h3>Informa&#xe7;&#xf5;es Adicionais</h3>
+      <h3>Informations Suppl&#xe9;mentaires</h3>
       <ul>
-        <li>Para ativar chamadas de voz e SMS, entre em contato com nosso Suporte</li>
-        <li>Instala&#xe7;&#xe3;o r&#xe1;pida e pr&#xe1;tica</li>
-        <li>Suporte t&#xe9;cnico dedicado</li>
+        <li>Pour activer les appels vocaux et les SMS, contactez notre Support</li>
+        <li>Installation rapide et pratique</li>
+        <li>Support technique d&#xe9;di&#xe9;</li>
       </ul>
 
-      <span class="highlight-text">Comece agora com internet ilimitada!</span>
+      <span class="highlight-text">Commencez maintenant avec internet illimit&#xe9; !</span>
       
-      <a href="https://buy.stripe.com/bIY16O1zpfl3cne28j" target="_self" class="cta-button">Assinar Agora</a>
+      <a href="https://buy.stripe.com/bIY16O1zpfl3cne28j" target="_self" class="cta-button">S&apos;abonner Maintenant</a>
     </div>
   </div>
 
   <section class="why-flow" id="why-flow">
-    <h2>Por que Escolher a TorresWebSec?</h2>
+    <h2>Pourquoi Choisir TorresWebSec ?</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <h3>Inova&#xe7;&#xe3;o &amp; Expertise</h3>
-        <p>Solu&#xe7;&#xf5;es projetadas para otimizar suas opera&#xe7;&#xf5;es e impulsionar o crescimento.</p>
+        <h3>Innovation &amp; Expertise</h3>
+        <p>Solutions con&#xe7;ues pour optimiser vos op&#xe9;rations et stimuler la croissance.</p>
       </div>
       
       <div class="benefit-card">
-        <h3>Servi&#xe7;os Personalizados</h3>
-        <p>Solu&#xe7;&#xf5;es personalizadas adaptadas &#xe0;s necessidades espec&#xed;ficas de cada empresa.</p>
+        <h3>Services Personnalis&#xe9;s</h3>
+        <p>Solutions adapt&#xe9;es aux besoins sp&#xe9;cifiques de chaque entreprise.</p>
       </div>
       
       <div class="benefit-card">
-        <h3>Maior Lucratividade</h3>
-        <p>Otimiza&#xe7;&#xe3;o de processos para melhor efici&#xea;ncia operacional.</p>
+        <h3>Meilleure Rentabilit&#xe9;</h3>
+        <p>Optimisation des processus pour une meilleure efficacit&#xe9; op&#xe9;rationnelle.</p>
       </div>
     </div>
   </section>
 
   <!-- New section for Clients -->
   <section class="clients" id="clients">
-    <h2>Nossos Clientes</h2>
+    <h2>Nos Clients</h2>
     <div class="clients-grid">
       <div class="client-card">
         <h3>Banobu</h3>
-        <p>Site Profissional</p>
-        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visite o site &#x2192;</a>
+        <p>Site Professionnel</p>
+        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visiter le site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>Voon Sports</h3>
         <p>E-commerce</p>
-        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visite o site &#x2192;</a>
+        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visiter le site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>Livraria Moria</h3>
-        <p>Site Profissional</p>
-        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visite o site &#x2192;</a>
+        <p>Site Professionnel</p>
+        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visiter le site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>Jana&#xed;na Beauty</h3>
-        <p>Site Simples</p>
-        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visite o site &#x2192;</a>
+        <p>Site Simple</p>
+        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visiter le site &#x2192;</a>
       </div>
       
       <div class="client-card">
         <h3>TPG</h3>
         <p>Transports Publics Genevois</p>
-        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visite o site &#x2192;</a>
+        <a href="https://www.instagram.com/torreswebsec/" target="_blank">Visiter le site &#x2192;</a>
       </div>
       
       <div class="highlight-review">
-        <div class="stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
-        <p>Relat&#xf3;rio T&#xe9;cnico: Nossa equipe identificou e relatou um erro nos terminais de pagamento da TPG em Genebra, Su&#xed;&#xe7;a. Esta a&#xe7;&#xe3;o essencial evitou uma perda de 17.280 CHF por ano.</p>
+        <div class="stars"></div>
+        <p>Rapport Technique : Notre &#xe9;quipe a identifi&#xe9; et signal&#xe9; une erreur sur les terminaux de paiement de la TPG &#xe0; Gen&#xe8;ve, Suisse. Cette action essentielle a &#xe9;vit&#xe9; une perte de 17 280 CHF par an.</p>
       </div>
     </div>
   </section>
@@ -1107,7 +1110,7 @@ body {
   <!-- Contact Form -->
   <form class="contact-form" id="contactForm">
     <div class="form-group">
-      <label>Nome Completo</label>
+      <label>Nom Complet</label>
       <input type="text" name="name" required>
     </div>
     <div class="form-group">
@@ -1115,30 +1118,30 @@ body {
       <input type="email" name="email" required>
     </div>
     <div class="form-group">
-      <label>Assunto</label>
+      <label>Sujet</label>
       <select name="subject" required>
-        <option value>Escolha um assunto</option>
+        <option value>Choisissez un sujet</option>
         <option value="torresbot">TorresBot</option>
         <option value="torrespay">TorresPay</option>
-        <option value="web">Cria&#xe7;&#xe3;o de Sites</option>
-        <option value="google">Presen&#xe7;a no Google</option>
-        <option value="server">Servidor Privado</option>
+        <option value="web">Cr&#xe9;ation de Sites Web</option>
+        <option value="google">Pr&#xe9;sence Google</option>
+        <option value="server">Serveur Priv&#xe9;</option>
         <option value="torresnet">TorresNet</option>
-        <option value="orders">Sistema de Pedidos Online</option>
+        <option value="orders">Syst&#xe8;me de Commandes en Ligne</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Mensagem</label>
+      <label>Message</label>
       <textarea name="message" required></textarea>
     </div>
-    <button type="submit" class="cta-button">Enviar</button>
+    <button type="submit" class="cta-button">Envoyer</button>
   </form>
 
   <!-- Footer -->
   <footer class="footer">
-    <img src="https://flagcdn.com/w20/ch.png" alt="Bandeira da Su&#xed;&#xe7;a" class="flag">
-    <img src="https://flagcdn.com/w20/br.png" alt="Bandeira do Brasil" class="flag">
-    <span>2025 TorresWebSec Inova&#xe7;&#xe3;o e Expertise</span>
+    <img src="https://flagcdn.com/w20/ch.png" alt="Drapeau Suisse" class="flag">
+    <img src="https://flagcdn.com/w20/br.png" alt="Drapeau Br&#xe9;silien" class="flag">
+    <span>2025 TorresWebSec Innovation et Expertise</span>
     <a href="https://www.instagram.com/torreswebsec/" target="_blank">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013 3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -1191,10 +1194,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
   e.preventDefault();
   const formData = new FormData(this);
   const message = `
-New message:
-Name: ${formData.get('name')}
+Nouveau message:
+Nom: ${formData.get('name')}
 Email: ${formData.get('email')}
-Subject: ${formData.get('subject')}
+Sujet: ${formData.get('subject')}
 Message: ${formData.get('message')}
   `;
   const BOT_TOKEN = '7761704256:AAFjKhIIjUptkMj84pnUU0VG5u5K_VFaJWg';
@@ -1210,17 +1213,23 @@ Message: ${formData.get('message')}
         text: message
       })
     });
-    alert('Mensagem enviada com sucesso!');
+    alert('Message envoyé avec succès!');
     this.reset();
   } catch (error) {
     console.error('Error:', error);
-    alert('Erro ao enviar mensagem. Por favor, tente novamente mais tarde.');
+    alert('Erreur lors de l\'envoi du message. Veuillez réessayer plus tard.');
   }
 });
 window.onclick = function (event) {
   if (event.target.classList.contains('modal')) {
     event.target.style.display = 'none';
   }
-};</script>
+};
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', 'AW-16825104368');</script>
 </body>
 </html>
