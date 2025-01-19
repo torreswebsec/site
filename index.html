@@ -1,6 +1,4 @@
-<html>
-<head>
-  <base href="https://www.instagram.com/torreswebsec/">
+<html><head><base href="https://www.instagram.com/torreswebsec/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TorresWebSec - Innovation Num&#xe9;rique</title>
@@ -108,6 +106,10 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       min-width: 200px;
       z-index: 1000;
+    }
+
+    .menu-dropdown.show {
+      display: block;
     }
 
     .menu-dropdown a {
@@ -377,58 +379,14 @@
     }
 
     .modal-content {
-      margin: 20px auto;
-      padding: 20px;
-      position: relative;
-      max-height: calc(100vh - 40px);
-      overflow-y: auto;
       background: var(--dark);
       color: var(--light);
-    }
-
-    .modal-content h2 {
-      color: var(--primary);
-      margin-bottom: 30px;
-      font-size: 32px;
-    }
-
-    .modal-content h3 {
-      color: var(--primary);
-      margin: 25px 0 15px;
-      font-size: 24px;
-    }
-
-    .modal-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-    }
-
-    .modal-content li {
+      padding: 30px;
+      margin: 50px auto;
       position: relative;
-      padding-left: 25px;
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-
-    .modal-content li:before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-    }
-
-    .modal-content p {
-      margin: 15px 0;
-      line-height: 1.6;
-    }
-
-    .highlight-text {
-      color: var(--primary);
-      font-size: 1.1em;
-      font-weight: 500;
-      margin: 20px 0;
-      display: block;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     .close-modal {
@@ -682,6 +640,10 @@
 
     .project-item .cta-button {
       margin-top: 15px;
+    }
+    
+    :target {
+      scroll-margin-top: 80px;
     }
   </style>
 </head>
@@ -1052,7 +1014,7 @@
       
       <span class="highlight-text">Entrez en contact avec nous et commencez &#xe0; vendre plus aujourd&apos;hui ! </span>
       
-      <a href="#whatsapp-button" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Demander une D&#xe9;monstration</a>
+      <a href="#whatsapp-button" class="cta-button" onclick="closeModal(&apos;ordersModal&apos;)">Demander une D&#xe9;mo</a>
     </div>
   </div>
 
@@ -1220,25 +1182,39 @@
 
   <script>const menuButton = document.querySelector('.menu-button');
 const menuDropdown = document.querySelector('.menu-dropdown');
-menuButton.addEventListener('click', e => {
-  e.stopPropagation();
-  menuDropdown.classList.toggle('show');
-  if (menuDropdown.classList.contains('show')) {
-    menuDropdown.style.animation = 'slideDown 0.3s ease forwards';
-  } else {
-    menuDropdown.style.animation = 'slideUp 0.3s ease forwards';
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
+window.addEventListener('click', e => {
+  if (e.target.classList.contains('modal')) {
+    e.target.style.display = 'none';
+    document.body.style.overflow = 'auto';
   }
 });
-document.addEventListener('click', e => {
-  if (!menuButton.contains(e.target) && !menuDropdown.contains(e.target)) {
-    menuDropdown.classList.remove('show');
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.service-button').forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      const modalId = button.getAttribute('onclick').match(/openModal\('(.+?)'\)/)[1];
+      openModal(modalId);
+    });
+  });
 });
-menuButton.addEventListener('keypress', e => {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    menuDropdown.classList.toggle('show');
-  }
-});</script>
+menuButton.addEventListener('click', e => {});
+document.addEventListener('click', e => {});
+menuButton.addEventListener('keypress', e => {});
+function smoothScroll(e) {}
+document.querySelectorAll('.nav-links a, .menu-dropdown a').forEach(link => {});</script>
 </body>
 </html>
